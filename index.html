@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Inicio</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<!--FAVICON-->
+  <link rel="icon" href="img/favicon.ico" type="image/png">
+</head>
+<body>
+	<header>
+		<ul>
+			<li><a href="#inicio">Inicio</a></li>
+			<li><a href="#proyectos">Proyectos</a></li>
+			<li><a href="#acerca">Acerca de</a></li>
+		</ul>
+	</header>
+	<main>
+		<section id="inicio">
+			<div class="column-izq">
+				<div class="contenido-clumn">
+					<div class="nombre">
+						<h1 id="hola" class="hola">¡Hola!</h1>
+						<h2 id="mi_nombre" class="mi_nombre">Mi nombre es:</h2>
+						<h2 id="nombre_apellido" class="nombre_apellido">Wilmer Pelicó</h2>
+					</div>
+					<div id="typed-strings">
+						<h2>Diseñador Gráfico</h2>
+						<h2>Desarrollador Web</h2>
+						<h2>Arquitecto de Datos</h2>
+						<h2>Arquitecto de Software</h2>
+					</div>
+					<span class="profesiones" id="typed" style="white-space:pre;"></span>
+					<br><br>
+					<div class="selector">
+						<select id="select-habilidades">
+							<option>----- Visualizar habilidades -----</option>
+							<option value="1">Diseñador Gráfico</option>
+							<option value="2">Programador Backend</option>
+							<option value="3">Programador Frontend</option>
+						</select>
+						<i></i>
+					</div>
+				</div>
+			</div>
+			<div class="fondo-img">
+				
+			</div>
+			<div class="column-der">
+				<div class="habilidades">
+					<div id="card" class="card">
+						<div class="card-header">
+							<div class="img"></div>
+						</div>
+						<div id="card-body" class="card-body">
+							<h3>Habilidades</h3>
+							<span id="habilidad-select"></span>
+							<div id="barras" class="dominio">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="proyectos">
+			<h1>Proyectos</h1>
+		</section>
+		<section id="acerca">
+			<h1>Acerda de mi</h1>
+		</section>
+	</main>
+	<script src="lib/typed/typed.js" type="text/javascript"></script>
+	<script src="js/habilidades.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		var typed = new Typed("#typed", {
+			stringsElement: '#typed-strings',
+			typeSpeed: 50,
+			backSpeed: 50,
+			backDelay: 2000,
+			startDelay: 1,
+			loop: true,
+			//cursorChar: '',
+		})
+
+	</script>
+</body>
+</html>
