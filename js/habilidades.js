@@ -98,14 +98,10 @@ function animar_textos(bool){
 		hola.classList.add("jump-animation")
 		mi_nombre.classList.add("slider-animation")
 		nombre_apellido.classList.add("drop-animation")
-		console.log(hola)
-
 	} else {
 		hola.classList.remove("jump-animation")
 		mi_nombre.classList.remove("slider-animation")
 		nombre_apellido.classList.remove("drop-animation")
-		console.log(hola)
-
 	}
 }
 /*
