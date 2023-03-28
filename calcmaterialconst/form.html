@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cálculo de materiales</title>
+</head>
+<body>
+	<h1>Unidades en Metros</h1>
+	<h4>Cálculo para materiales de construcción de muros</h4>
+	<p>NOTA: Espesor de las juntas 2cm (0.02mts)</p>
+	<fieldset>
+		<legend>Dimensiones del block</legend>
+		<form id="dim_block_form">
+			<div class="form-group">
+				<label>Longitud:</label>
+				<input type="number" name="longitud_b" step="0.01" id="longitud_b" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label>Altura:</label>
+				<input type="number" name="altura_b" step="0.01" id="altura_b" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label>Profundidad:</label>
+				<input type="number" name="profundidad_b" step="0.01" id="profundidad_b" class="form-control" required>
+			</div>
+			<input type="submit" value="Ingresar">
+			<a>Editar</a>
+		</form>
+		<div id="area_block" class="hidden">
+			<h4><b>Área block: <span></span></b></h4>
+		</div>
+	</fieldset>
+	<br>
+	<fieldset>
+		<legend>Dimensiones Muro</legend>
+		<form id="dim_muro_form">
+			<div class="form-group">
+				<label>Longitud:</label>
+				<input type="number" name="longitud_m" step="0.01" id="longitud_m" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label>Altura:</label>
+				<input type="number" name="altura_m" step="0.01" id="altura_m" class="form-control" required>
+			</div>
+			<input type="submit" value="Ingresar">
+			<a>Editar</a>
+			<div id="area_muro" class="hidden">
+				<h4><b>Área muro: <span></span></b></h4>
+			</div>
+		</form>
+	</fieldset>
+	<br><br>
+	<a>CALCULAR</a>
+	<h2 id="cant_blocks"></h2>
+	<br>
+	<h2 id="vol_mortero"></h2>
+	<fieldset>
+		<legend>Cemento, cal, arena y agua</legend>
+		<form id="mortero_form">
+			<table width="100%" style="text-align: center;">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Tipo de</th>
+						<th colspan="3">Materiales por m3</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>Mortero</th>
+						<th>Cemento (kg)</th>
+						<th>Arena (m3)</th>
+						<th>Agua (L)</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>Cantidad de Cal</td>
+						<td><input type="number" name="cal" step="0.01" id="cant_cal" class="form-control"></td>
+						<td></td>
+						<td><input type="submit" value="Ver cantidades"></td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</fieldset>
+	<br><br>
+	<h2 id="mats_mortero"></h2>
+	<br><br>
+	<script type="text/javascript" src="block.js"></script>
+	<script type="text/javascript" src="muro.js"></script>
+	<script type="text/javascript" src="calc.js"></script>
+</body>
+</html>
