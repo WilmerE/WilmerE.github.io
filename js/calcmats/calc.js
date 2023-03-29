@@ -1,5 +1,9 @@
 console.log("Hello World")
 /*###########################################################
+				DICCIONARIO DE VANOS
+###########################################################*/
+var vano_obj = []
+/*###########################################################
 				TABLA DE DATOS PARA MORTERO
 ###########################################################*/
 var tipo_mortero_obj = [
@@ -19,6 +23,37 @@ var fill_table = tipo_mortero_obj.map( function(mortero){
 var filter = fill_table.toString().replace(/,/g, '')
 
 table_mortero.innerHTML = filter
+
+/*###########################################################
+						AGREGAR VANOS
+###########################################################*/
+const fields_vanos 	= document.querySelector('#fields_vanos')
+const add_vano 		= document.querySelector('#add_vano')
+
+add_vano.addEventListener('click', function(){
+	let cant_vanos 	= document.querySelectorAll('.serie-vanos')
+	let i 			= cant_vanos.length
+	let new_vano 	= `<hr><div id="vano_${i}" class="serie-vanos">
+						<div class="form-group">
+							<label>Longitud:</label>
+							<input type="number" name="long_vano_${i}" step="0.01" id="long_vano_${i}" class="form-control long-vano" required>
+						</div>
+						<div class="form-group">
+							<label>Alatura:</label>
+							<input type="number" name="alt_vano_${i}" step="0.01" id="alt_vano_${i}" class="form-control alto-vano" required>
+						</div>
+						<a id="id_vano_${i}" class="delete-vano" onclick="eliminar_vano(${i})">Eliminar</a>
+					</div>`
+
+	fields_vanos.insertAdjacentHTML("beforeend", new_vano)
+	enable_btn_form_vano()
+})
+
+function eliminar_vano(i){
+	let id_vano 		= document.querySelector(`#vano_${i}`)
+	id_vano.innerHTML 	= "<span style=\"color: red;\">Eliminado</span>"
+	vano_obj.splice(i,1)
+}
 
 /*###########################################################
 				OBTENER DIMENSIONES BLOCK
@@ -55,30 +90,85 @@ form_muro.addEventListener('submit', (e) => {
 	
 	e.preventDefault()
 
-	let area = document.querySelector('#area_muro span')
+	let area 		= document.querySelector('#area_muro span')
 
 	longitud_m 		= document.querySelector('#longitud_m').value
 	altura_m 		= document.querySelector('#altura_m').value
 	disable_form(form_muro)
 	area.textContent = `${(longitud_m * altura_m).toFixed(2)} mts2`
-	calcular()
 })
+
+/*###########################################################
+						AREA DE VANOS
+###########################################################*/
+const form_vanos 		= document.querySelector('#dim_vanos_form')
+const btn_vano_form 	= document.querySelector('#submit_vanos')
+var if_vanos_obj 		= Object.keys(vano_obj).length === 0
+var area_vanos 			= 0.00
+
+form_vanos.addEventListener('submit', (e) => {
+
+	e.preventDefault()
+
+	let if_vanos 	= document.querySelectorAll('.serie-vanos .form-group')
+	let area 		= document.querySelector('#area_vanos span')
+
+	if( if_vanos.length > 0){
+		let longitud_vanos 	= document.querySelectorAll('.long-vano')
+		let altura_vanos 	= document.querySelectorAll('.alto-vano')
+
+		for(let i = 0; i<longitud_vanos.length; i++){
+			let ancho = parseFloat(longitud_vanos[i].value)
+			let alto = parseFloat(altura_vanos[i].value)
+			let area = ancho * alto
+			vano_obj[i] = {longitud: ancho, altura: alto, area: area}
+		}
+
+		if_vanos_obj = Object.keys(vano_obj).length === 0
+		area_vanos = vano_obj.map( item => item.area).reduce( (cont, prev) => cont + prev,0)
+	} else {
+		area_vanos = 0.00
+		if_vanos_obj = Object.keys(vano_obj).length === 0
+	}
+
+	//disable_form(form_vanos)
+	area.textContent = `${area_vanos.toFixed(2)}`
+})
+
+function enable_btn_form_vano(){
+	btn_vano_form.disabled = false
+}
 
 /*###########################################################
 					CALCULAR MATERIALES
 ###########################################################*/
+const btn_calcular 		= document.querySelector('#btn_calcular_todo')
+const btn_mortero_form 	= document.querySelector('#btn_mortero_form')
+const msg_error 		= document.querySelector('#msg_error')
+
+btn_calcular.addEventListener('click', function(){
+	if( longitud_b === undefined || longitud_m === undefined){
+		msg_error.textContent = "No se ha registrado un block o muro"
+	} else {
+		calcular()
+		btn_mortero_form.disabled = false
+		msg_error.textContent = ""
+	}
+	
+})
+
 var vol_mortero
 
 function calcular(){
 
-	let show_msg = document.querySelector('#cant_blocks')
-	let show_msg2 = document.querySelector('#vol_mortero')
+	let show_msg 	= document.querySelector('#cant_blocks')
+	let show_msg2 	= document.querySelector('#vol_mortero')
 
 	block_obj 	= new Block(longitud_b, altura_b, profundidad_b)
 	muro_obj	= new Muro(longitud_m, altura_m)
 
 	let area_bloque 	= block_obj.area_bloque()
-	let area_muro 		= muro_obj.area_muro()
+	let area_muro 		= area_vanos > 0 ? muro_obj.area_muro() - area_vanos : muro_obj.area_muro()
 	let blocks_exact	= area_muro / area_bloque
 	let blocks_extra	= blocks_exact * 1.05 //+ 5% para desperdicio
 	let vol_block 		= block_obj.volumen_block()
@@ -87,7 +177,8 @@ function calcular(){
 	vol_mortero 		= vol_muro - ( blocks_exact * vol_block )
 
 	show_msg.textContent 	= `Cantidad de blocks a utilizar es de ${blocks_extra.toFixed(2)} unidades, tomando en cuenta un 5% de desperdicio.`
-	show_msg2.textContent 	= `Cantidad de mortero a utilizar es de ${vol_mortero.toFixed(2)}m3` 
+	show_msg2.textContent 	= `Cantidad de mortero a utilizar es de ${vol_mortero.toFixed(2)}m3`
+	console.log(area_muro)
 }
 
 /*###########################################################

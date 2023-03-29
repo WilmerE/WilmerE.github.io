@@ -45,15 +45,37 @@
 				<label>Altura:</label>
 				<input type="number" name="altura_m" step="0.01" id="altura_m" class="form-control" required>
 			</div>
-			<input type="submit" value="Ingresar">
-			<a>Editar</a>
+			<div class="form-group">
+				<input type="submit" value="Ingresar">
+				<a>Editar</a>
+			</div>
 			<div id="area_muro" class="hidden">
 				<h4><b>Área muro: <span></span></b></h4>
 			</div>
 		</form>
 	</fieldset>
+	<br>
+	<fieldset>
+		<legend>Dimensiones para Vanos</legend>
+		<a id="add_vano" class="btn-add-vano">Agregar vano +</a>
+		<form id="dim_vanos_form">
+			<div id="fields_vanos">
+				
+			</div>
+			<hr>
+			<div class="form-group">
+				<input type="submit" value="Ingresar" id="submit_vanos" disabled>
+				<a>Editar</a>
+			</div>
+		</form>
+		<div id="area_vanos" class="hidden">
+			<h4><b>Área vanos: <span></span></b></h4>
+		</div>
+	</fieldset>
 	<br><br>
-	<a>CALCULAR</a>
+	<a id="btn_calcular_todo">CALCULAR</a>
+	<br>
+	<span id="msg_error" style="color: red; font-weight: bold;"></span>
 	<h2 id="cant_blocks"></h2>
 	<br>
 	<h2 id="vol_mortero"></h2>
@@ -83,7 +105,7 @@
 						<td>Cantidad de Cal</td>
 						<td><input type="number" name="cal" step="0.01" id="cant_cal" class="form-control"></td>
 						<td></td>
-						<td><input type="submit" value="Ver cantidades"></td>
+						<td><input type="submit" value="Ver cantidades" id="btn_mortero_form" disabled></td>
 					</tr>
 				</tfoot>
 			</table>
@@ -92,8 +114,8 @@
 	<br><br>
 	<h2 id="mats_mortero"></h2>
 	<br><br>
-	<script type="text/javascript" src="js/calcmats/block.js"></script>
-	<script type="text/javascript" src="js/calcmats/muro.js"></script>
-	<script type="text/javascript" src="js/calcmats/calc.js"></script>
+	<script type="text/javascript" src="block.js"></script>
+	<script type="text/javascript" src="muro.js"></script>
+	<script type="text/javascript" src="calc.js"></script>
 </body>
 </html>
