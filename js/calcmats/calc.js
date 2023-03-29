@@ -3,6 +3,7 @@ console.log("Hello World")
 				DICCIONARIO DE VANOS
 ###########################################################*/
 var vano_obj = []
+const msg_error 		= document.querySelector('#msg_error')
 /*###########################################################
 				TABLA DE DATOS PARA MORTERO
 ###########################################################*/
@@ -52,7 +53,7 @@ add_vano.addEventListener('click', function(){
 function eliminar_vano(i){
 	let id_vano 		= document.querySelector(`#vano_${i}`)
 	id_vano.innerHTML 	= "<span style=\"color: red;\">Eliminado</span>"
-	vano_obj.splice(i,1)
+	id_vano.classList.remove('serie-vanos')
 }
 
 /*###########################################################
@@ -105,12 +106,24 @@ const form_vanos 		= document.querySelector('#dim_vanos_form')
 const btn_vano_form 	= document.querySelector('#submit_vanos')
 var if_vanos_obj 		= Object.keys(vano_obj).length === 0
 var area_vanos 			= 0.00
+var vol_vanos 			= 0.00
 
 form_vanos.addEventListener('submit', (e) => {
 
 	e.preventDefault()
 
-	let if_vanos 	= document.querySelectorAll('.serie-vanos .form-group')
+	if( longitud_b === undefined || longitud_m === undefined){
+		//add_new_vano()
+		msg_error.textContent = "No se ha registrado un block o muro"
+	} else {
+		add_new_vano()
+		msg_error.textContent = ""
+	}
+})
+
+function add_new_vano(){
+	vano_obj = []
+	let if_vanos 	= document.querySelectorAll('.serie-vanos')
 	let area 		= document.querySelector('#area_vanos span')
 
 	if( if_vanos.length > 0){
@@ -118,22 +131,28 @@ form_vanos.addEventListener('submit', (e) => {
 		let altura_vanos 	= document.querySelectorAll('.alto-vano')
 
 		for(let i = 0; i<longitud_vanos.length; i++){
-			let ancho = parseFloat(longitud_vanos[i].value)
-			let alto = parseFloat(altura_vanos[i].value)
-			let area = ancho * alto
-			vano_obj[i] = {longitud: ancho, altura: alto, area: area}
+			let id_item 	= longitud_vanos[i].id.toString().split('_')
+			let ancho 		= parseFloat(longitud_vanos[i].value)
+			let alto 		= parseFloat(altura_vanos[i].value)
+			let area 		= ancho * alto
+			let vol_vano 	= ancho * alto * profundidad_b
+			vano_obj[i] 	= {id: id_item[2], longitud: ancho, altura: alto, area: area, volumen: vol_vano}
 		}
 
 		if_vanos_obj = Object.keys(vano_obj).length === 0
-		area_vanos = vano_obj.map( item => item.area).reduce( (cont, prev) => cont + prev,0)
+		area_vanos = vano_obj.map( item => item.area).reduce( (cont, next) => cont + next,0)
+		vol_vanos = vano_obj.map( item => item.volumen).reduce( (cont, next) => cont + next,0)
+
 	} else {
-		area_vanos = 0.00
-		if_vanos_obj = Object.keys(vano_obj).length === 0
+		area_vanos 		= 0.00
+		vol_vanos 		= 0.00
+		if_vanos_obj 	= Object.keys(vano_obj).length === 0
 	}
 
 	//disable_form(form_vanos)
 	area.textContent = `${area_vanos.toFixed(2)}`
-})
+	console.log(vano_obj)
+}
 
 function enable_btn_form_vano(){
 	btn_vano_form.disabled = false
@@ -144,7 +163,6 @@ function enable_btn_form_vano(){
 ###########################################################*/
 const btn_calcular 		= document.querySelector('#btn_calcular_todo')
 const btn_mortero_form 	= document.querySelector('#btn_mortero_form')
-const msg_error 		= document.querySelector('#msg_error')
 
 btn_calcular.addEventListener('click', function(){
 	if( longitud_b === undefined || longitud_m === undefined){
@@ -172,13 +190,21 @@ function calcular(){
 	let blocks_exact	= area_muro / area_bloque
 	let blocks_extra	= blocks_exact * 1.05 //+ 5% para desperdicio
 	let vol_block 		= block_obj.volumen_block()
-	let vol_muro 		= muro_obj.volumen_muro(profundidad_b)
+	let vol_muro 		= vol_vanos > 0 ? muro_obj.volumen_muro(profundidad_b) - vol_vanos : muro_obj.volumen_muro(profundidad_b)
 	
 	vol_mortero 		= vol_muro - ( blocks_exact * vol_block )
 
+	console.log(`Area inicial muro: ${muro_obj.area_muro()}`)
+	console.log(`Volumen inicial muro: ${muro_obj.volumen_muro(profundidad_b)}`)
+	console.log(`Area final de muro: ${area_muro}`)
+	console.log(`Volumen final de muro: ${vol_muro}`)
+	console.log(`Area de vanos: ${area_vanos}`)
+	console.log(`Volumen de vanos: ${vol_vanos}`)
+	console.log(`${vol_muro} - (${blocks_exact} * ${vol_block})`)
+	console.log(`Volumen mortero: ${vol_mortero}`)
+
 	show_msg.textContent 	= `Cantidad de blocks a utilizar es de ${blocks_extra.toFixed(2)} unidades, tomando en cuenta un 5% de desperdicio.`
 	show_msg2.textContent 	= `Cantidad de mortero a utilizar es de ${vol_mortero.toFixed(2)}m3`
-	console.log(area_muro)
 }
 
 /*###########################################################
