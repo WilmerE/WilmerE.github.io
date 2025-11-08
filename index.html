@@ -3,88 +3,402 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Inicio</title>
+	<meta name="description" content="Portafolio de Wilmer Pelicó - Diseñador Gráfico, Desarrollador Web y Arquitecto de Software con experiencia en desarrollo full-stack y arquitectura de datos">
+	<meta name="keywords" content="diseño gráfico, desarrollo web, arquitecto de software, portafolio, full-stack, frontend, backend">
+	<meta name="author" content="Wilmer Pelicó">
+	<meta name="theme-color" content="#003770">
+	
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Wilmer Pelicó - Portfolio">
+	<meta property="og:description" content="Diseñador Gráfico, Desarrollador Web y Arquitecto de Software">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://wilmere.github.io">
+	<meta property="og:image" content="https://wilmere.github.io/img/og-image.jpg">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Wilmer Pelicó - Portfolio">
+	<meta name="twitter:description" content="Diseñador Gráfico, Desarrollador Web y Arquitecto de Software">
+	
+	<title>Wilmer Pelicó - Portfolio</title>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<!--FAVICON-->
 	<link rel="icon" href="img/favicon.ico" type="image/png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-	<header>
-		<ul>
-			<li><a href="#inicio">Inicio</a></li>
-			<li><a href="#proyectos">Proyectos</a></li>
-			<li><a href="#acerca">Acerca de</a></li>
-			<li><a href="form_mats.html">Go</a></li>
-		</ul>
-	</header>
+	<!-- Navigation -->
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+		<div class="nav-container">
+			<div class="logo">
+				<a href="#inicio" aria-label="Inicio">WP</a>
+			</div>
+			<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-menu">
+				<li><a href="#inicio">Inicio</a></li>
+				<li><a href="#habilidades-section">Habilidades</a></li>
+				<li><a href="#proyectos">Proyectos</a></li>
+				<li><a href="#acerca">Acerca de</a></li>
+				<li><a href="#contacto">Contacto</a></li>
+			</ul>
+		</div>
+	</nav>
+	
 	<main>
-		<section id="inicio">
-			<div class="column-izq">
-				<div class="contenido-clumn">
-					<div class="nombre">
-						<h1 id="hola" class="hola">¡Hola!</h1>
-						<h2 id="mi_nombre" class="mi_nombre">Mi nombre es:</h2>
-						<h2 id="nombre_apellido" class="nombre_apellido">Wilmer Pelicó</h2>
+		<!-- Hero Section -->
+		<section id="inicio" class="hero-section">
+			<div class="hero-container">
+				<div class="hero-content fade-in">
+					<div class="greeting">
+						<h1 class="hero-title">¡Hola! 👋</h1>
+						<h2 class="hero-subtitle">Soy <span class="highlight">Wilmer Pelicó</span></h2>
 					</div>
-					<div id="typed-strings">
+					<div id="typed-strings" style="display: none;">
 						<h2>Diseñador Gráfico</h2>
 						<h2>Desarrollador Web</h2>
 						<h2>Arquitecto de Datos</h2>
 						<h2>Arquitecto de Software</h2>
 					</div>
-					<span class="profesiones" id="typed" style="white-space:pre;"></span>
-					<br><br>
-					<div class="selector">
-						<select id="select-habilidades">
-							<option>----- Visualizar habilidades -----</option>
-							<option value="1">Diseñador Gráfico</option>
-							<option value="2">Programador Backend</option>
-							<option value="3">Programador Frontend</option>
-						</select>
-						<i></i>
+					<span class="typed-text" id="typed"></span>
+					
+					<p class="hero-description">
+						Transformo ideas en experiencias digitales únicas. Especializado en crear
+						soluciones innovadoras con diseño impecable y código limpio.
+					</p>
+					
+					<div class="cta-buttons">
+						<a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+						<a href="#contacto" class="btn btn-secondary">Contactar</a>
+					</div>
+				</div>
+				
+				<div class="hero-visual">
+					<div class="profile-card">
+						<div class="card-glow"></div>
+						<div class="profile-image"></div>
 					</div>
 				</div>
 			</div>
-			<div class="column-der">
-				<div class="habilidades">
-					<div id="card" class="card">
-						<div class="card-header">
-							<div class="img"></div>
+			<div class="scroll-indicator">
+				<span>Scroll</span>
+				<div class="mouse"></div>
+			</div>
+		</section>
+		
+		<!-- Skills Section -->
+		<section id="habilidades-section" class="skills-section">
+			<div class="container">
+				<h2 class="section-title">Habilidades & Experiencia</h2>
+				<p class="section-subtitle">Tecnologías y herramientas que domino</p>
+				
+				<div class="skills-selector">
+					<button class="skill-tab active" data-category="diseño">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+						</svg>
+						Diseño Gráfico
+					</button>
+					<button class="skill-tab" data-category="backend">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<rect x="2" y="3" width="20" height="14" rx="2"/>
+							<path d="M8 21h8M12 17v4"/>
+						</svg>
+						Backend
+					</button>
+					<button class="skill-tab" data-category="frontend">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<polyline points="16 18 22 12 16 6"/>
+							<polyline points="8 6 2 12 8 18"/>
+						</svg>
+						Frontend
+					</button>
+				</div>
+				
+				<div class="skills-grid" id="skills-grid">
+					<!-- Skills will be injected here by JavaScript -->
+				</div>
+			</div>
+		</section>
+		
+		<!-- Projects Section -->
+		<section id="proyectos" class="projects-section">
+			<div class="container">
+				<h2 class="section-title">Proyectos Destacados</h2>
+				<p class="section-subtitle">Algunos de mis trabajos recientes</p>
+				
+				<div class="projects-grid">
+					<article class="project-card">
+						<div class="project-image">
+							<img src="img/project-1.jpg" alt="Proyecto 1" loading="lazy">
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="project-link" aria-label="Ver demo">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+											<polyline points="15 3 21 3 21 9"/>
+											<line x1="10" y1="14" x2="21" y2="3"/>
+										</svg>
+									</a>
+									<a href="#" class="project-link" aria-label="Ver código">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<polyline points="16 18 22 12 16 6"/>
+											<polyline points="8 6 2 12 8 18"/>
+										</svg>
+									</a>
+								</div>
+							</div>
 						</div>
-						<div id="card-body" class="card-body">
-							<h3>Habilidades</h3>
-							<span id="habilidad-select"></span>
-							<div id="barras" class="dominio">
-								
+						<div class="project-info">
+							<h3>Calculadora de Materiales</h3>
+							<p>Aplicación web para calcular materiales de construcción con interfaz intuitiva</p>
+							<div class="project-tags">
+								<span class="tag">JavaScript</span>
+								<span class="tag">HTML</span>
+								<span class="tag">CSS</span>
+							</div>
+						</div>
+					</article>
+					
+					<article class="project-card">
+						<div class="project-image">
+							<img src="img/project-2.jpg" alt="Proyecto 2" loading="lazy">
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="project-link" aria-label="Ver demo">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+											<polyline points="15 3 21 3 21 9"/>
+											<line x1="10" y1="14" x2="21" y2="3"/>
+										</svg>
+									</a>
+									<a href="#" class="project-link" aria-label="Ver código">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<polyline points="16 18 22 12 16 6"/>
+											<polyline points="8 6 2 12 8 18"/>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-info">
+							<h3>Portfolio Interactivo</h3>
+							<p>Sitio web personal con animaciones y diseño responsive moderno</p>
+							<div class="project-tags">
+								<span class="tag">HTML5</span>
+								<span class="tag">CSS3</span>
+								<span class="tag">Animaciones</span>
+							</div>
+						</div>
+					</article>
+					
+					<article class="project-card">
+						<div class="project-image">
+							<img src="img/project-3.jpg" alt="Proyecto 3" loading="lazy">
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="project-link" aria-label="Ver demo">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+											<polyline points="15 3 21 3 21 9"/>
+											<line x1="10" y1="14" x2="21" y2="3"/>
+										</svg>
+									</a>
+									<a href="#" class="project-link" aria-label="Ver código">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+											<polyline points="16 18 22 12 16 6"/>
+											<polyline points="8 6 2 12 8 18"/>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-info">
+							<h3>Sistema de Gestión</h3>
+							<p>Dashboard completo para administración de datos con arquitectura escalable</p>
+							<div class="project-tags">
+								<span class="tag">Python</span>
+								<span class="tag">PHP</span>
+								<span class="tag">Database</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+		
+		<!-- About Section -->
+		<section id="acerca" class="about-section">
+			<div class="container">
+				<div class="about-grid">
+					<div class="about-content">
+						<h2 class="section-title">Acerca de Mí</h2>
+						<p class="about-text">
+							Soy un profesional multidisciplinario con pasión por la tecnología y el diseño.
+							Con años de experiencia en desarrollo web, diseño gráfico y arquitectura de software,
+							he trabajado en proyectos diversos que van desde aplicaciones web hasta sistemas complejos
+							de gestión de datos.
+						</p>
+						<p class="about-text">
+							Mi enfoque combina creatividad con soluciones técnicas sólidas, siempre buscando
+							la mejor experiencia para el usuario final. Me especializo en crear interfaces
+							intuitivas y sistemas robustos que resuelven problemas reales.
+						</p>
+						
+						<div class="experience-stats">
+							<div class="stat">
+								<span class="stat-number">5+</span>
+								<span class="stat-label">Años de Experiencia</span>
+							</div>
+							<div class="stat">
+								<span class="stat-number">50+</span>
+								<span class="stat-label">Proyectos Completados</span>
+							</div>
+							<div class="stat">
+								<span class="stat-number">30+</span>
+								<span class="stat-label">Clientes Satisfechos</span>
 							</div>
 						</div>
 					</div>
+					
+					<div class="about-image">
+						<div class="image-wrapper">
+							<div class="image-placeholder"></div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="fondo-img"></div>
 		</section>
-		<section id="proyectos">
-			<h1></h1>
-			<div class="fondo-img"></div>
-		</section>
-		<section id="acerca">
-			<h1></h1>
+		
+		<!-- Contact Section -->
+		<section id="contacto" class="contact-section">
+			<div class="container">
+				<h2 class="section-title">Trabajemos Juntos</h2>
+				<p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+				
+				<div class="contact-content">
+					<div class="contact-info">
+						<div class="contact-item">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+								<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+								<polyline points="22,6 12,13 2,6"/>
+							</svg>
+							<div>
+								<h3>Email</h3>
+								<a href="mailto:wilmer@example.com">wilmer@example.com</a>
+							</div>
+						</div>
+						
+						<div class="contact-item">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+								<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+							</svg>
+							<div>
+								<h3>GitHub</h3>
+								<a href="https://github.com/WilmerE" target="_blank" rel="noopener">@WilmerE</a>
+							</div>
+						</div>
+						
+						<div class="contact-item">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+								<rect x="2" y="9" width="4" height="12"/>
+								<circle cx="4" cy="4" r="2"/>
+							</svg>
+							<div>
+								<h3>LinkedIn</h3>
+								<a href="#" target="_blank" rel="noopener">Wilmer Pelicó</a>
+							</div>
+						</div>
+					</div>
+					
+					<form class="contact-form" id="contactForm">
+						<div class="form-group">
+							<label for="name">Nombre</label>
+							<input type="text" id="name" name="name" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" required>
+						</div>
+						<div class="form-group">
+							<label for="message">Mensaje</label>
+							<textarea id="message" name="message" rows="5" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+					</form>
+				</div>
+			</div>
 		</section>
 	</main>
-	<script src="lib/typed/typed.js" type="text/javascript"></script>
-	<script src="js/habilidades.js" type="text/javascript"></script>
-	<script type="text/javascript">
-
-		var typed = new Typed("#typed", {
-			stringsElement: '#typed-strings',
-			typeSpeed: 50,
-			backSpeed: 50,
-			backDelay: 2000,
-			startDelay: 1,
-			loop: true,
-			//cursorChar: '',
-		})
-
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<h3>WP</h3>
+					<p>Creando experiencias digitales excepcionales</p>
+				</div>
+				
+				<div class="footer-links">
+					<h4>Enlaces</h4>
+					<ul>
+						<li><a href="#inicio">Inicio</a></li>
+						<li><a href="#habilidades-section">Habilidades</a></li>
+						<li><a href="#proyectos">Proyectos</a></li>
+						<li><a href="#acerca">Acerca de</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-social">
+					<h4>Sígueme</h4>
+					<div class="social-links">
+						<a href="https://github.com/WilmerE" target="_blank" rel="noopener" aria-label="GitHub">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+							</svg>
+						</a>
+						<a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+							</svg>
+						</a>
+						<a href="#" target="_blank" rel="noopener" aria-label="Twitter">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<p>&copy; 2025 Wilmer Pelicó. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- Scripts -->
+	<script src="lib/typed/typed.js"></script>
+	<script src="js/habilidades-modern.js"></script>
+	<script>
+		// Initialize Typed.js
+		document.addEventListener('DOMContentLoaded', () => {
+			const typed = new Typed("#typed", {
+				stringsElement: '#typed-strings',
+				typeSpeed: 50,
+				backSpeed: 30,
+				backDelay: 2000,
+				startDelay: 500,
+				loop: true,
+				showCursor: true,
+				cursorChar: '|',
+			});
+		});
 	</script>
 </body>
 </html>
