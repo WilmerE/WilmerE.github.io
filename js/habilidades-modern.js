@@ -375,8 +375,84 @@ class PerformanceOptimizer {
 }
 
 // ===================================
-// INITIALIZE ALL MODULES
+// CLIENTS ORBIT CONTROLLER
 // ===================================
+class ClientsOrbit {
+	constructor() {
+		this.orbitContainer = document.querySelector('.clients-orbit-container');
+		this.clientNodes = document.querySelectorAll('.client-node');
+		this.init();
+	}
+
+	init() {
+		if (!this.orbitContainer) return;
+
+		// Add hover effects
+		this.clientNodes.forEach((node, index) => {
+			node.addEventListener('mouseenter', () => this.handleNodeHover(node, index));
+			node.addEventListener('mouseleave', () => this.handleNodeLeave(node));
+		});
+
+		// Optional: Enable automatic rotation
+		// Uncomment the line below to enable slow rotation
+		// this.orbitContainer.classList.add('animated');
+
+		// Add entrance animation
+		this.animateEntrance();
+	}
+
+	handleNodeHover(node, index) {
+		// Highlight the hovered node
+		node.style.zIndex = '20';
+		
+		// Slightly dim other nodes
+		this.clientNodes.forEach((otherNode, otherIndex) => {
+			if (otherIndex !== index) {
+				otherNode.style.opacity = '0.5';
+			}
+		});
+	}
+
+	handleNodeLeave(node) {
+		// Reset all nodes
+		node.style.zIndex = '5';
+		this.clientNodes.forEach(otherNode => {
+			otherNode.style.opacity = '1';
+		});
+	}
+
+	animateEntrance() {
+		this.clientNodes.forEach((node, index) => {
+			node.style.opacity = '0';
+			node.style.transform = node.style.transform + ' scale(0)';
+			
+			setTimeout(() => {
+				node.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+				node.style.opacity = '1';
+				
+				// Get the current transform and update it
+				const currentTransform = window.getComputedStyle(node).transform;
+				const matrix = new DOMMatrix(currentTransform);
+				
+				// Extract rotation and translation
+				const angle = Math.atan2(matrix.b, matrix.a);
+				const positionAngle = (index * 60) * Math.PI / 180;
+				const radius = 280;
+				
+				node.style.transform = `rotate(${positionAngle}rad) translate(${radius}px) rotate(-${positionAngle}rad) scale(1)`;
+			}, index * 100);
+		});
+	}
+
+	// Method to toggle automatic rotation
+	toggleRotation() {
+		this.orbitContainer.classList.toggle('animated');
+	}
+}
+
+// ===================================
+// INITIALIZE ALL MODULES
+// =================================== */
 document.addEventListener('DOMContentLoaded', () => {
 	// Initialize all modules
 	new SkillsManager();
@@ -386,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	new MobileMenu();
 	new ContactForm();
 	new PerformanceOptimizer();
+	new ClientsOrbit();
 	
 	console.log('✅ Portfolio initialized successfully!');
 });

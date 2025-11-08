@@ -863,6 +863,264 @@ ul {
 }
 
 /* ===================================
+   CLIENTS SECTION (ORBITAL DESIGN)
+   =================================== */
+.clients-section {
+	padding: var(--spacing-xl) 0;
+	background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.clients-section::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	height: 800px;
+	background: radial-gradient(circle, rgba(0, 55, 112, 0.03) 0%, transparent 70%);
+	pointer-events: none;
+}
+
+.clients-orbit-container {
+	position: relative;
+	width: 100%;
+	max-width: 700px;
+	height: 700px;
+	margin: var(--spacing-xl) auto;
+}
+
+/* Central Logo */
+.central-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+.logo-circle {
+	width: 120px;
+	height: 120px;
+	background: var(--gradient-primary);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: var(--shadow-lg);
+	position: relative;
+	z-index: 2;
+}
+
+.logo-content {
+	font-size: 2.5rem;
+	font-family: var(--font-heading);
+	color: var(--text-light);
+	font-weight: 700;
+}
+
+/* Pulse Rings */
+.pulse-ring {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 120px;
+	height: 120px;
+	border: 3px solid var(--primary-light);
+	border-radius: 50%;
+	opacity: 0;
+	animation: pulse 3s ease-out infinite;
+}
+
+.pulse-ring-delay {
+	animation-delay: 1.5s;
+}
+
+@keyframes pulse {
+	0% {
+		width: 120px;
+		height: 120px;
+		opacity: 0.8;
+	}
+	100% {
+		width: 250px;
+		height: 250px;
+		opacity: 0;
+	}
+}
+
+/* Client Nodes */
+.client-node {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	margin: -50px 0 0 -50px;
+	z-index: 5;
+}
+
+/* Connection Lines */
+.connection-line {
+	position: absolute;
+	width: 2px;
+	height: 0;
+	background: linear-gradient(to bottom, var(--primary-light), transparent);
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.5s ease;
+}
+
+.client-node:hover .connection-line {
+	height: 250px;
+	opacity: 0.3;
+}
+
+/* Position each node in orbit */
+.node-1 {
+	transform: rotate(0deg) translate(280px) rotate(0deg);
+}
+
+.node-2 {
+	transform: rotate(60deg) translate(280px) rotate(-60deg);
+}
+
+.node-3 {
+	transform: rotate(120deg) translate(280px) rotate(-120deg);
+}
+
+.node-4 {
+	transform: rotate(180deg) translate(280px) rotate(-180deg);
+}
+
+.node-5 {
+	transform: rotate(240deg) translate(280px) rotate(-240deg);
+}
+
+.node-6 {
+	transform: rotate(300deg) translate(280px) rotate(-300deg);
+}
+
+/* Client Link & Logo */
+.client-link {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	transition: var(--transition-base);
+}
+
+.client-logo {
+	width: 100px;
+	height: 100px;
+	background: var(--bg-primary);
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: var(--shadow-md);
+	padding: 1rem;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	border: 3px solid transparent;
+	position: relative;
+	overflow: hidden;
+}
+
+.client-logo::before {
+	content: '';
+	position: absolute;
+	inset: -2px;
+	background: var(--gradient-primary);
+	border-radius: 50%;
+	opacity: 0;
+	transition: opacity var(--transition-base);
+	z-index: -1;
+}
+
+.client-logo:hover::before {
+	opacity: 1;
+}
+
+.client-logo img {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+	transition: var(--transition-base);
+	filter: grayscale(100%);
+}
+
+.client-link:hover .client-logo {
+	transform: scale(1.15) translateY(-5px);
+	box-shadow: var(--shadow-lg);
+}
+
+.client-link:hover .client-logo img {
+	filter: grayscale(0%);
+	transform: scale(1.1);
+}
+
+.client-name {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+	margin-top: 0.5rem;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: all var(--transition-base);
+	white-space: nowrap;
+	position: absolute;
+	bottom: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.client-link:hover .client-name {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+/* Clients Description */
+.clients-description {
+	max-width: 800px;
+	margin: var(--spacing-lg) auto 0;
+	padding: 0 var(--spacing-md);
+}
+
+.clients-description p {
+	font-size: 1.125rem;
+	line-height: 1.8;
+	color: var(--text-secondary);
+}
+
+/* Orbital Animation (optional - can be enabled) */
+@keyframes orbit {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Add this class to .clients-orbit-container to enable rotation */
+.clients-orbit-container.animated .client-node {
+	animation: orbit 30s linear infinite;
+}
+
+/* Hover pause animation */
+.clients-orbit-container.animated:hover .client-node {
+	animation-play-state: paused;
+}
+
+/* ===================================
    FOOTER
    =================================== */
 .footer {
@@ -1081,6 +1339,45 @@ ul {
 	.hero-subtitle {
 		font-size: 1.5rem;
 	}
+	
+	/* Clients Section Mobile */
+	.clients-orbit-container {
+		height: 500px;
+		max-width: 500px;
+	}
+	
+	.client-node {
+		width: 80px;
+		height: 80px;
+		margin: -40px 0 0 -40px;
+	}
+	
+	.client-logo {
+		width: 80px;
+		height: 80px;
+		padding: 0.75rem;
+	}
+	
+	.client-logo img {
+		width: 50px;
+		height: 50px;
+	}
+	
+	.logo-circle {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.logo-content {
+		font-size: 2rem;
+	}
+	
+	.node-1 { transform: rotate(0deg) translate(200px) rotate(0deg); }
+	.node-2 { transform: rotate(60deg) translate(200px) rotate(-60deg); }
+	.node-3 { transform: rotate(120deg) translate(200px) rotate(-120deg); }
+	.node-4 { transform: rotate(180deg) translate(200px) rotate(-180deg); }
+	.node-5 { transform: rotate(240deg) translate(200px) rotate(-240deg); }
+	.node-6 { transform: rotate(300deg) translate(200px) rotate(-300deg); }
 }
 
 @media (max-width: 480px) {
@@ -1097,5 +1394,48 @@ ul {
 	.skill-tab {
 		width: 100%;
 		justify-content: center;
+	}
+	
+	/* Clients Section Small Mobile */
+	.clients-orbit-container {
+		height: 400px;
+		max-width: 400px;
+	}
+	
+	.client-node {
+		width: 70px;
+		height: 70px;
+		margin: -35px 0 0 -35px;
+	}
+	
+	.client-logo {
+		width: 70px;
+		height: 70px;
+		padding: 0.5rem;
+	}
+	
+	.client-logo img {
+		width: 40px;
+		height: 40px;
+	}
+	
+	.logo-circle {
+		width: 80px;
+		height: 80px;
+	}
+	
+	.logo-content {
+		font-size: 1.5rem;
+	}
+	
+	.node-1 { transform: rotate(0deg) translate(150px) rotate(0deg); }
+	.node-2 { transform: rotate(60deg) translate(150px) rotate(-60deg); }
+	.node-3 { transform: rotate(120deg) translate(150px) rotate(-120deg); }
+	.node-4 { transform: rotate(180deg) translate(150px) rotate(-180deg); }
+	.node-5 { transform: rotate(240deg) translate(150px) rotate(-240deg); }
+	.node-6 { transform: rotate(300deg) translate(150px) rotate(-300deg); }
+	
+	.clients-description p {
+		font-size: 1rem;
 	}
 }
