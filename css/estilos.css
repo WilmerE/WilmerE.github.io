@@ -29,8 +29,8 @@
 	--spacing-xl: 6rem;
 	
 	/* Typography */
-	--font-primary: 'HelveticaMdCn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-	--font-heading: 'HelveticaBlkCn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 	
 	/* Transitions */
 	--transition-fast: 0.2s ease;
@@ -47,17 +47,7 @@
 /* ===================================
    FONT IMPORTS
    =================================== */
-@font-face {
-	font-family: "HelveticaBlkCn";
-	src: url("../fonts/HelveticaNeueLTPro-BlkCn.otf");
-	font-display: swap;
-}
 
-@font-face {
-	font-family: "HelveticaMdCn";
-	src: url("../fonts/HelveticaNeueLTPro-MdCn.otf");
-	font-display: swap;
-}
 
 /* ===================================
    RESET & BASE STYLES
@@ -1562,8 +1552,8 @@ ul {
 	
 	/* Clients Section Mobile */
 	.clients-orbit-container {
-		height: 500px;
-		max-width: 500px;
+		height: 450px;
+		max-width: 450px;
 	}
 	
 	.client-node {
@@ -1597,12 +1587,12 @@ ul {
 		height: 35px;
 	}
 	
-	.node-1 { transform: rotate(0deg) translate(200px) rotate(0deg); }
-	.node-2 { transform: rotate(60deg) translate(200px) rotate(-60deg); }
-	.node-3 { transform: rotate(120deg) translate(200px) rotate(-120deg); }
-	.node-4 { transform: rotate(180deg) translate(200px) rotate(-180deg); }
-	.node-5 { transform: rotate(240deg) translate(200px) rotate(-240deg); }
-	.node-6 { transform: rotate(300deg) translate(200px) rotate(-300deg); }
+	.node-1 { transform: rotate(0deg) translate(170px) rotate(0deg); }
+	.node-2 { transform: rotate(60deg) translate(170px) rotate(-60deg); }
+	.node-3 { transform: rotate(120deg) translate(170px) rotate(-120deg); }
+	.node-4 { transform: rotate(180deg) translate(170px) rotate(-180deg); }
+	.node-5 { transform: rotate(240deg) translate(170px) rotate(-240deg); }
+	.node-6 { transform: rotate(300deg) translate(170px) rotate(-300deg); }
 }
 
 @media (max-width: 480px) {
@@ -1623,8 +1613,23 @@ ul {
 	
 	/* Clients Section Small Mobile */
 	.clients-orbit-container {
-		height: 400px;
-		max-width: 400px;
+		height: 350px;
+		max-width: 350px;
+	}
+	.orbit-lines {
+		width: 100% !important;
+		height: 100% !important;
+		left: 0;
+		top: 0;
+	}
+	/* Oculta las líneas desktop y muestra solo las mobile */
+	.connection-lines .line-1-mobile,
+	.connection-lines .line-2-mobile,
+	.connection-lines .line-3-mobile,
+	.connection-lines .line-4-mobile,
+	.connection-lines .line-5-mobile,
+	.connection-lines .line-6-mobile {
+		display: inline;
 	}
 	
 	.client-node {
@@ -1662,12 +1667,26 @@ ul {
 		height: 50px;
 	}
 	
-	.node-1 { transform: rotate(0deg) translate(150px) rotate(0deg); }
-	.node-2 { transform: rotate(60deg) translate(150px) rotate(-60deg); }
-	.node-3 { transform: rotate(120deg) translate(150px) rotate(-120deg); }
-	.node-4 { transform: rotate(180deg) translate(150px) rotate(-180deg); }
-	.node-5 { transform: rotate(240deg) translate(150px) rotate(-240deg); }
-	.node-6 { transform: rotate(300deg) translate(150px) rotate(-300deg); }
+	.node-1 { transform: rotate(0deg) translate(150px) rotate(0deg) !important; }
+	.node-2 { transform: rotate(60deg) translate(150px) rotate(-60deg) !important; }
+	.node-3 { transform: rotate(120deg) translate(150px) rotate(-120deg) !important; }
+	.node-4 { transform: rotate(180deg) translate(150px) rotate(-180deg) !important; }
+	.node-5 { transform: rotate(240deg) translate(150px) rotate(-240deg) !important; }
+	.node-6 { transform: rotate(300deg) translate(150px) rotate(-300deg) !important; }
+	/* Mostrar solo las líneas móviles y ocultar desktop */
+	/* Más cerca aún en móviles pequeños */
+	@media (max-width: 400px) {
+		.node-1 { transform: rotate(0deg) translate(90px) rotate(0deg); }
+		.node-2 { transform: rotate(60deg) translate(90px) rotate(-60deg); }
+		.node-3 { transform: rotate(120deg) translate(90px) rotate(-120deg); }
+		.node-4 { transform: rotate(180deg) translate(90px) rotate(-180deg); }
+		.node-5 { transform: rotate(240deg) translate(90px) rotate(-240deg); }
+		.node-6 { transform: rotate(300deg) translate(90px) rotate(-300deg); }
+		.clients-orbit-container {
+			height: 200px;
+			max-width: 200px;
+		}
+	}
 	
 	.clients-description p {
 		font-size: 1rem;
