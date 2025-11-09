@@ -83,7 +83,9 @@
 				<div class="hero-visual">
 					<div class="profile-card">
 						<div class="card-glow"></div>
-						<div class="profile-image"></div>
+						<div class="profile-image">
+							<img src="img/milogo/isotipo_white.png" alt="isotipo_white" loading="lazy">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -382,31 +384,25 @@
 					<!-- Connection Lines from Center -->
 					<svg class="orbit-lines" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
 						<g class="connection-lines">
-							<!-- Cliente 1 - Arriba (0°) -->
-							<line class="line-1" x1="350" y1="350" x2="350" y2="70" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
-							<!-- Cliente 2 - Derecha arriba (60°) -->
-							<line class="line-2" x1="350" y1="350" x2="592.6" y2="210" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
-							<!-- Cliente 3 - Derecha abajo (120°) -->
-							<line class="line-3" x1="350" y1="350" x2="592.6" y2="490" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
-							<!-- Cliente 4 - Abajo (180°) -->
-							<line class="line-4" x1="350" y1="350" x2="350" y2="630" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
-							<!-- Cliente 5 - Izquierda abajo (240°) -->
-							<line class="line-5" x1="350" y1="350" x2="107.4" y2="490" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
-							<!-- Cliente 6 - Izquierda arriba (300°) -->
-							<line class="line-6" x1="350" y1="350" x2="200" y2="210" stroke="url(#lineGradient)" stroke-width="2" opacity="0"/>
+							<!-- Cliente 1 - Arriba (0° CSS = -90° cartesiano): x=350, y=70 -->
+							<line class="line-1" x1="350" y1="350" x2="350" y2="70" stroke="#005bbd" stroke-width="2" opacity="0"/>
+							<!-- Cliente 2 - 60° (60° CSS = -30° cartesiano): x=350+242.5=592.5, y=350-140=210 -->
+							<line class="line-2" x1="350" y1="350" x2="592.5" y2="210" stroke="#005bbd" stroke-width="2" opacity="0"/>
+							<!-- Cliente 3 - 120° (120° CSS = 30° cartesiano): x=350+242.5=592.5, y=350+140=490 -->
+							<line class="line-3" x1="350" y1="350" x2="592.5" y2="490" stroke="#005bbd" stroke-width="2" opacity="0"/>
+							<!-- Cliente 4 - 180° (180° CSS = 90° cartesiano): x=350, y=630 -->
+							<line class="line-4" x1="350" y1="350" x2="350" y2="630" stroke="#005bbd" stroke-width="2" opacity="0"/>
+							<!-- Cliente 5 - 240° (240° CSS = 150° cartesiano): x=350-242.5=107.5, y=350+140=490 -->
+							<line class="line-5" x1="350" y1="350" x2="107.5" y2="490" stroke="#005bbd" stroke-width="2" opacity="0"/>
+							<!-- Cliente 6 - 300° (300° CSS = 210° cartesiano): x=350-242.5=107.5, y=350-140=210 -->
+							<line class="line-6" x1="350" y1="350" x2="107.5" y2="210" stroke="#005bbd" stroke-width="2" opacity="0"/>
 						</g>
-						<defs>
-							<linearGradient id="lineGradient">
-								<stop offset="0%" style="stop-color:#005bbd;stop-opacity:1" />
-								<stop offset="100%" style="stop-color:#bda113;stop-opacity:1" />
-							</linearGradient>
-						</defs>
 					</svg>
 					
 					<!-- Central Logo -->
 					<div class="central-logo">
 						<div class="logo-circle">
-							<img src="img/milogo/Diseño_imagotipo-color-white.png" alt="Wilmer Pelicó Logo" class="logo-content-img">
+							<img src="img/milogo/isotipo_white.png" alt="Wilmer Pelicó Logo" class="logo-content-img">
 						</div>
 						<div class="pulse-ring"></div>
 						<div class="pulse-ring pulse-ring-delay"></div>
@@ -416,7 +412,7 @@
 					<div class="client-node node-1" data-position="1">
 						<a href="https://www.ejemplo1.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 1">
 							<div class="client-logo">
-								<img src="img/clients/client-1.svg" alt="Cliente 1" loading="lazy">
+								<img src="img/clients/pyd.jpg" alt="Cliente 1" loading="lazy">
 								<div class="client-name">Empresa 1</div>
 							</div>
 						</a>
@@ -425,7 +421,7 @@
 					<div class="client-node node-2" data-position="2">
 						<a href="https://www.ejemplo2.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 2">
 							<div class="client-logo">
-								<img src="img/clients/client-2.svg" alt="Cliente 2" loading="lazy">
+								<img src="img/clients/nilas.png" alt="Cliente 2" loading="lazy">
 								<div class="client-name">Empresa 2</div>
 							</div>
 						</a>
@@ -434,7 +430,7 @@
 					<div class="client-node node-3" data-position="3">
 						<a href="https://www.ejemplo3.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 3">
 							<div class="client-logo">
-								<img src="img/clients/client-3.svg" alt="Cliente 3" loading="lazy">
+								<img src="img/clients/pexpress.png" alt="Cliente 3" loading="lazy">
 								<div class="client-name">Empresa 3</div>
 							</div>
 						</a>
@@ -443,7 +439,7 @@
 					<div class="client-node node-4" data-position="4">
 						<a href="https://www.ejemplo4.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 4">
 							<div class="client-logo">
-								<img src="img/clients/client-4.svg" alt="Cliente 4" loading="lazy">
+								<img src="img/clients/noovi.jpg" alt="Cliente 4" loading="lazy">
 								<div class="client-name">Empresa 4</div>
 							</div>
 						</a>
@@ -452,7 +448,7 @@
 					<div class="client-node node-5" data-position="5">
 						<a href="https://www.ejemplo5.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 5">
 							<div class="client-logo">
-								<img src="img/clients/client-5.svg" alt="Cliente 5" loading="lazy">
+								<img src="img/clients/publiprim.png" alt="Cliente 5" loading="lazy">
 								<div class="client-name">Empresa 5</div>
 							</div>
 						</a>
@@ -461,7 +457,7 @@
 					<div class="client-node node-6" data-position="6">
 						<a href="https://www.ejemplo6.com" target="_blank" rel="noopener" class="client-link" aria-label="Cliente 6">
 							<div class="client-logo">
-								<img src="img/clients/client-6.svg" alt="Cliente 6" loading="lazy">
+								<img src="img/clients/eelegant.png" alt="Cliente 6" loading="lazy">
 								<div class="client-name">Empresa 6</div>
 							</div>
 						</a>
@@ -587,7 +583,7 @@
 	
 	<!-- Scripts -->
 	<script src="lib/typed/typed.js"></script>
-	<script src="js/habilidades-modern.js"></script>
+	<script src="js/habilidades-modern.js?v=5"></script>
 	<script>
 		// Initialize Typed.js
 		document.addEventListener('DOMContentLoaded', () => {

@@ -5,7 +5,7 @@ const card_body = document.querySelector('#card-body')
 
 //Datos de habilidades de cada profesion
 var data_disenio = [{"nombre": "Photoshop", "dominio": "90"}, {"nombre": "Illustrator", "dominio": "85"}, {"nombre": "After Effects", "dominio": "80"}, {"nombre": "Sony Vegas", "dominio": "75"} ]
-var data_backend = [{"nombre": "Java", "dominio": "85"}, {"nombre": "Python", "dominio": "90"}, {"nombre": "PHP", "dominio": "85"}, {"nombre": "C++", "dominio": "90"} ]
+var data_backend = [{"nombre": "Java", "dominio": "75"}, {"nombre": "Python", "dominio": "80"}, {"nombre": "PHP", "dominio": "90"}, {"nombre": "C++", "dominio": "75"} ]
 var data_frontend = [{"nombre": "HTML", "dominio": "90"}, {"nombre": "JavaScript", "dominio": "85"}, {"nombre": "CSS", "dominio": "90"}, {"nombre": "Jquery", "dominio": "85"} ]
 
 var titulo = document.querySelector('#habilidad-select')

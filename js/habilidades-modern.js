@@ -420,11 +420,17 @@ class ClientsOrbit {
 	init() {
 		if (!this.orbitContainer) return;
 
+		// Update line coordinates to match node positions
+		// this.updateLineCoordinates(); // Comentado - usando coordenadas HTML manuales
+
 		// Add hover effects
 		this.clientNodes.forEach((node, index) => {
 			node.addEventListener('mouseenter', () => this.handleNodeHover(node, index));
 			node.addEventListener('mouseleave', () => this.handleNodeLeave(node));
 		});
+
+		// Update line coordinates based on actual node positions
+		this.updateLineCoordinates();
 
 		// Optional: Enable automatic rotation
 		// Uncomment the line below to enable slow rotation
@@ -432,6 +438,32 @@ class ClientsOrbit {
 
 		// Add entrance animation
 		this.animateEntrance();
+	}
+
+	updateLineCoordinates() {
+		// Get the actual position of nodes in the viewport
+		const container = document.querySelector('.clients-orbit-container');
+		const containerRect = container.getBoundingClientRect();
+		const centerX = 350; // SVG center
+		const centerY = 350;
+		
+		this.clientNodes.forEach((node, index) => {
+			const nodeRect = node.getBoundingClientRect();
+			const line = this.lines[index];
+			
+			// Calculate node center relative to container
+			const nodeCenterX = nodeRect.left + nodeRect.width / 2 - containerRect.left;
+			const nodeCenterY = nodeRect.top + nodeRect.height / 2 - containerRect.top;
+			
+			// Convert to SVG coordinates (container is 700x700)
+			const svgX = (nodeCenterX / containerRect.width) * 700;
+			const svgY = (nodeCenterY / containerRect.height) * 700;
+			
+			line.setAttribute('x1', centerX);
+			line.setAttribute('y1', centerY);
+			line.setAttribute('x2', svgX.toFixed(1));
+			line.setAttribute('y2', svgY.toFixed(1));
+		});
 	}
 
 	handleNodeHover(node, index) {
@@ -444,12 +476,11 @@ class ClientsOrbit {
 		});
 		
 		// Highlight ONLY the corresponding line
-		this.lines.forEach((line, lineIndex) => {
-			if (lineIndex === index) {
-				line.style.opacity = '0.8';
-				line.style.strokeWidth = '3';
-			}
-		});
+		const line = this.lines[index];
+		if (line) {
+			line.setAttribute('opacity', '0.8');
+			line.setAttribute('stroke-width', '4');
+		}
 	}
 
 	handleNodeLeave(node) {
@@ -461,8 +492,8 @@ class ClientsOrbit {
 		
 		// Hide all lines again
 		this.lines.forEach(line => {
-			line.style.opacity = '0';
-			line.style.strokeWidth = '2';
+			line.setAttribute('opacity', '0');
+			line.setAttribute('stroke-width', '2');
 		});
 	}
 
@@ -490,7 +521,7 @@ class ClientsOrbit {
 		
 		// Lines stay invisible - only appear on hover
 		this.lines.forEach((line) => {
-			line.style.opacity = '0';
+			line.setAttribute('opacity', '0');
 		});
 	}
 
