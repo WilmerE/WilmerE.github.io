@@ -281,19 +281,48 @@ class ContactForm {
 	async handleSubmit(e) {
 		e.preventDefault();
 		
-		const formData = new FormData(this.form);
-		const data = Object.fromEntries(formData.entries());
+		const submitButton = this.form.querySelector('button[type="submit"]');
+		const originalText = submitButton.textContent;
 		
-		console.log('Form submitted:', data);
+		// Disable button and show loading state
+		submitButton.disabled = true;
+		submitButton.textContent = 'Enviando...';
 		
-		// Show success message
-		this.showMessage('¡Gracias por tu mensaje! Te responderé pronto.', 'success');
-		
-		// Reset form
-		this.form.reset();
+		try {
+			const formData = new FormData(this.form);
+			const response = await fetch(this.form.action, {
+				method: 'POST',
+				body: formData,
+				headers: {
+					'Accept': 'application/json'
+				}
+			});
+			
+			if (response.ok) {
+				this.showMessage('¡Mensaje enviado con éxito! Te responderé pronto.', 'success');
+				this.form.reset();
+			} else {
+				const data = await response.json();
+				if (data.errors) {
+					this.showMessage('Error al enviar el mensaje. Por favor, intenta de nuevo.', 'error');
+				}
+			}
+		} catch (error) {
+			this.showMessage('Error de conexión. Verifica tu internet e intenta nuevamente.', 'error');
+		} finally {
+			// Re-enable button
+			submitButton.disabled = false;
+			submitButton.textContent = originalText;
+		}
 	}
 
 	showMessage(message, type = 'success') {
+		// Remove any existing messages
+		const existingMessage = this.form.querySelector('.form-message');
+		if (existingMessage) {
+			existingMessage.remove();
+		}
+		
 		// Create message element
 		const messageEl = document.createElement('div');
 		messageEl.className = `form-message form-message-${type}`;
@@ -305,6 +334,7 @@ class ContactForm {
 			background: ${type === 'success' ? '#d4edda' : '#f8d7da'};
 			color: ${type === 'success' ? '#155724' : '#721c24'};
 			border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};
+			animation: slideIn 0.3s ease-out;
 		`;
 		
 		// Insert after form
@@ -312,7 +342,9 @@ class ContactForm {
 		
 		// Remove after 5 seconds
 		setTimeout(() => {
-			messageEl.remove();
+			messageEl.style.opacity = '0';
+			messageEl.style.transition = 'opacity 0.3s ease-out';
+			setTimeout(() => messageEl.remove(), 300);
 		}, 5000);
 	}
 }
@@ -381,6 +413,7 @@ class ClientsOrbit {
 	constructor() {
 		this.orbitContainer = document.querySelector('.clients-orbit-container');
 		this.clientNodes = document.querySelectorAll('.client-node');
+		this.lines = document.querySelectorAll('.connection-lines line');
 		this.init();
 	}
 
@@ -402,13 +435,19 @@ class ClientsOrbit {
 	}
 
 	handleNodeHover(node, index) {
-		// Highlight the hovered node
-		node.style.zIndex = '20';
-		
-		// Slightly dim other nodes
+		// Increase z-index and dim other nodes
+		node.style.zIndex = '10';
 		this.clientNodes.forEach((otherNode, otherIndex) => {
 			if (otherIndex !== index) {
-				otherNode.style.opacity = '0.5';
+				otherNode.style.opacity = '0.3';
+			}
+		});
+		
+		// Highlight ONLY the corresponding line
+		this.lines.forEach((line, lineIndex) => {
+			if (lineIndex === index) {
+				line.style.opacity = '0.8';
+				line.style.strokeWidth = '3';
 			}
 		});
 	}
@@ -418,6 +457,12 @@ class ClientsOrbit {
 		node.style.zIndex = '5';
 		this.clientNodes.forEach(otherNode => {
 			otherNode.style.opacity = '1';
+		});
+		
+		// Hide all lines again
+		this.lines.forEach(line => {
+			line.style.opacity = '0';
+			line.style.strokeWidth = '2';
 		});
 	}
 
@@ -441,6 +486,11 @@ class ClientsOrbit {
 				
 				node.style.transform = `rotate(${positionAngle}rad) translate(${radius}px) rotate(-${positionAngle}rad) scale(1)`;
 			}, index * 100);
+		});
+		
+		// Lines stay invisible - only appear on hover
+		this.lines.forEach((line) => {
+			line.style.opacity = '0';
 		});
 	}
 
