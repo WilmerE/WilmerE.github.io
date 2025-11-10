@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<style>
+	.svg-hero-anim {
+		transform-origin: 50% 50%;
+		opacity: 0;
+		transform: scale(0) rotate(-90deg);
+		transition:
+			opacity 0.4s cubic-bezier(.77,0,.18,1.01),
+			transform 2.2s cubic-bezier(.77,0,.18,1.01);
+	}
+	.svg-hero-anim.active {
+		opacity: 1;
+		transform: scale(1) rotate(360deg);
+	}
+	.svg-hero-anim polygon {
+		transition: all 2.2s cubic-bezier(.77,0,.18,1.01);
+	}
+	</style>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Wilmer Pelicó - Arquitecto de Software & Desarrollador Full-Stack. Especializado en diseño de arquitecturas sólidas, sistemas de videovigilancia y desarrollo web. Diseño primero, código después.">
@@ -25,6 +42,21 @@
 	<link rel="icon" href="img/favicon.ico" type="image/png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<style>
+	.svg-hero-anim {
+		transform-origin: 50% 50%;
+		opacity: 0;
+		transform: scale(0) rotate(-90deg);
+		transition: opacity 0.4s, transform 2.2s cubic-bezier(.77,0,.18,1.01);
+	}
+	.svg-hero-anim.active {
+		opacity: 1;
+		transform: scale(1) rotate(360deg);
+	}
+	.svg-hero-anim polygon {
+		transition: all 2.2s cubic-bezier(.77,0,.18,1.01);
+	}
+	</style>
 </head>
 <body>
 	<!-- Navigation -->
@@ -84,7 +116,67 @@
 					<div class="profile-card">
 						<div class="card-glow"></div>
 						<div class="profile-image">
-							<img src="img/milogo/isotipo-white.png" alt="isotipo_white" loading="lazy">
+							<svg id="Layer_1" class="svg-hero-anim" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2479.05 1816.61">
+							<defs>
+								<style>
+								.cls-1 {
+									fill: #fff;
+									stroke-width: 0px;
+								}
+								</style>
+							</defs>
+							<g id="W_final" data-name="W final">
+									<g>
+									<polygon id="Shape_init" data-name="Shape init" class="cls-1" points="453.71 907.39 976.58 907.39 715.15 454.57 453.71 907.39"/>
+									<polygon id="Shape_init-2" data-name="Shape init" class="cls-1" points="976.58 907.39 1499.45 907.39 1238.01 454.57 976.58 907.39"/>
+									<polygon id="Shape_init-3" data-name="Shape init" class="cls-1" points="715.15 1360.2 1238.01 1360.2 976.58 907.39 715.15 1360.2"/>
+									<polygon id="Shape_init-4" data-name="Shape init" class="cls-1" points="1238.01 1360.2 1760.88 1360.2 1499.45 907.39 1238.01 1360.2"/>
+									<polygon id="Shape_init-5" data-name="Shape init" class="cls-1" points="453.71 907.39 976.58 907.39 715.15 1360.2 453.71 907.39"/>
+									<polygon id="Shape_init-6" data-name="Shape init" class="cls-1" points="1499.45 907.39 2022.32 907.39 1760.88 454.57 1499.45 907.39"/>
+									<polygon id="Shape_init-7" data-name="Shape init" class="cls-1" points="1499.45 907.39 2022.32 907.39 1760.88 1360.2 1499.45 907.39"/>
+									</g>
+							</g>
+							<script>
+							// --- SVG HERO ANIMATION ---
+							window.addEventListener('DOMContentLoaded', () => {
+								const svg = document.querySelector('.svg-hero-anim');
+								const polygons = svg.querySelectorAll('polygon');
+								// Polígonos y sus puntos finales
+								const finalPoints = Array.from(polygons).map(p => p.getAttribute('points').trim().split(' ').map(pt => pt.split(',').length === 2 ? pt.split(',') : pt.split(' ')).flat().map(Number));
+									// Centro del SVG
+									const cx = 1238.01, cy = 907.39, r = 80;
+								// Generar puntos de círculo pequeño en el centro para cada polígono
+								function circlePoints(n, cx, cy, r) {
+									const arr = [];
+									for (let i = 0; i < n; i++) {
+										const angle = (2 * Math.PI * i) / n;
+										arr.push([
+											(cx + r * Math.cos(angle)).toFixed(2),
+											(cy + r * Math.sin(angle)).toFixed(2)
+										]);
+									}
+									return arr;
+								}
+								// Inicializar todos los polígonos como círculo pequeño
+								polygons.forEach((poly, i) => {
+									const n = finalPoints[i].length / 2;
+									const pts = circlePoints(n, cx, cy, r).map(pair => pair.join(',')).join(' ');
+									poly.setAttribute('points', pts);
+								});
+								// Activar animación de escala y rotación
+											setTimeout(() => svg.classList.add('active'), 100);
+											// Morph a la forma final
+											setTimeout(() => {
+												polygons.forEach((poly, i) => {
+													poly.setAttribute('points', finalPoints[i].reduce((acc, val, idx) => {
+														if (idx % 2 === 0) return acc + (acc ? ' ' : '') + val + ',';
+														else return acc + val;
+													}, ''));
+												});
+											}, 1200);
+							});
+							</script>
+							</svg>
 						</div>
 					</div>
 				</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2479.05 1816.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="W_final" data-name="W final">
+    <g>
+      <polygon id="Shape_init" data-name="Shape init" class="cls-1" points="453.71 907.39 976.58 907.39 715.15 454.57 453.71 907.39"/>
+      <polygon id="Shape_init-2" data-name="Shape init" class="cls-1" points="976.58 907.39 1499.45 907.39 1238.01 454.57 976.58 907.39"/>
+      <polygon id="Shape_init-3" data-name="Shape init" class="cls-1" points="715.15 1360.2 1238.01 1360.2 976.58 907.39 715.15 1360.2"/>
+      <polygon id="Shape_init-4" data-name="Shape init" class="cls-1" points="1238.01 1360.2 1760.88 1360.2 1499.45 907.39 1238.01 1360.2"/>
+      <polygon id="Shape_init-5" data-name="Shape init" class="cls-1" points="453.71 907.39 976.58 907.39 715.15 1360.2 453.71 907.39"/>
+      <polygon id="Shape_init-6" data-name="Shape init" class="cls-1" points="1499.45 907.39 2022.32 907.39 1760.88 454.57 1499.45 907.39"/>
+      <polygon id="Shape_init-7" data-name="Shape init" class="cls-1" points="1499.45 907.39 2022.32 907.39 1760.88 1360.2 1499.45 907.39"/>
+    </g>
+  </g>
+</svg>
