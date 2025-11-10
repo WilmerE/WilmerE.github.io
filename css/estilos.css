@@ -180,7 +180,7 @@ ul {
 }
 
 .logo-nav {
-	height: 40px;
+	height: 60px;
 	width: auto;
 	object-fit: contain;
 	transition: var(--transition-base);
@@ -1583,10 +1583,6 @@ ul {
 		font-size: 2rem;
 	}
 	
-	.logo-nav {
-		height: 35px;
-	}
-	
 	.node-1 { transform: rotate(0deg) translate(170px) rotate(0deg); }
 	.node-2 { transform: rotate(60deg) translate(170px) rotate(-60deg); }
 	.node-3 { transform: rotate(120deg) translate(170px) rotate(-120deg); }
@@ -1657,10 +1653,6 @@ ul {
 	
 	.logo-content {
 		font-size: 1.5rem;
-	}
-	
-	.logo-nav {
-		height: 30px;
 	}
 	
 	.footer-logo {
