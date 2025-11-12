@@ -8,7 +8,7 @@ const skillsData = {
 		{ nombre: 'Photoshop', dominio: 90, icon: '🎨' },
 		{ nombre: 'Illustrator', dominio: 85, icon: '✏️' },
 		{ nombre: 'After Effects', dominio: 80, icon: '🎬' },
-		{ nombre: 'Sony Vegas', dominio: 75, icon: '🎥' }
+		{ nombre: 'Blender', dominio: 80, icon: '🧊' }
 	],
 	backend: [
 		{ nombre: 'Java', dominio: 75, icon: '☕' },
