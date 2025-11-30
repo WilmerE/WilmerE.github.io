@@ -3,27 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Sistema Publiprim - Sistema de gestión de pedidos para imprenta desarrollado en PHP con arquitectura MVC">
-	<meta name="keywords" content="sistema de gestión, imprenta, PHP, MVC, WebSocket, gestión de pedidos, tiempo real">
+	<meta name="description" content="Sistema de Seguridad Integrado para A tu Medida - Videovigilancia, detección de intrusos y respaldo eléctrico">
+	<meta name="keywords" content="sistema de seguridad, videovigilancia, CCTV, detección de intrusos, Hikvision, alarma, cámaras IP, respaldo eléctrico">
 	<meta name="author" content="Wilmer Pelicó">
 	<meta name="theme-color" content="#003770">
 	
 	<!-- Open Graph Meta Tags -->
-	<meta property="og:title" content="Sistema Publiprim - Gestión de Pedidos para Imprenta">
-	<meta property="og:description" content="Sistema completo de gestión con arquitectura MVC, notificaciones en tiempo real y control de roles para 4 estaciones de trabajo">
+	<meta property="og:title" content="Sistema de Seguridad Integrado - A tu Medida">
+	<meta property="og:description" content="Solución completa de videovigilancia, detección de intrusos y respaldo eléctrico para protección total las 24 horas">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://wilmere.github.io/proyecto-publiprim.html">
-	<meta property="og:image" content="https://wilmere.github.io/img/proyectos/01/dashboard1.png">
+	<meta property="og:url" content="https://wilmere.github.io/proyecto-seguridad.html">
+	<meta property="og:image" content="https://wilmere.github.io/img/milogo/Dise%C3%B1o_imagotipo.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Sistema Publiprim - Gestión de Pedidos para Imprenta">
-	<meta name="twitter:description" content="Sistema completo de gestión con arquitectura MVC, notificaciones en tiempo real y control de roles">
-	<meta name="twitter:image" content="https://wilmere.github.io/img/proyectos/01/dashboard1.png">
+	<meta name="twitter:title" content="Sistema de Seguridad Integrado - A tu Medida">
+	<meta name="twitter:description" content="Solución completa de videovigilancia, detección de intrusos y respaldo eléctrico para protección total">
+	<meta name="twitter:image" content="https://wilmere.github.io/img/milogo/Dise%C3%B1o_imagotipo.png">
 	
-	<title>Sistema Publiprim - Wilmer Pelicó</title>
+	<title>Sistema de Seguridad Integrado - Wilmer Pelicó</title>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link rel="icon" href="img/favicon.ico" type="image/png">
 	<style>
@@ -80,6 +80,19 @@
 			width: 100%;
 			height: auto;
 			display: block;
+		}
+		
+		.carousel-placeholder {
+			width: 100%;
+			height: 500px;
+			background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--text-secondary);
+			font-size: 1.5rem;
+			text-align: center;
+			padding: var(--spacing-lg);
 		}
 		
 		.carousel-button {
@@ -184,12 +197,12 @@
 		}
 		
 		.project-section ul li::before {
-			content: '•';
+			content: '✓';
 			position: absolute;
 			left: 0;
 			color: var(--primary-color);
 			font-weight: bold;
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 		}
 		
 		.tech-stack {
@@ -228,6 +241,27 @@
 			font-size: 1.125rem;
 		}
 		
+		.highlight-box {
+			background: linear-gradient(135deg, #003770 0%, #005bbd 100%);
+			color: white;
+			padding: var(--spacing-lg);
+			border-radius: var(--radius-lg);
+			margin: var(--spacing-lg) 0;
+		}
+		
+		.highlight-box h3 {
+			color: white;
+			margin-top: 0;
+		}
+		
+		.highlight-box ul li {
+			color: white;
+		}
+		
+		.highlight-box ul li::before {
+			color: var(--accent-color);
+		}
+		
 		.back-button {
 			display: inline-flex;
 			align-items: center;
@@ -250,6 +284,11 @@
 		@media (max-width: 768px) {
 			.project-header h1 {
 				font-size: 1.75rem;
+			}
+			
+			.carousel-placeholder {
+				height: 300px;
+				font-size: 1rem;
 			}
 			
 			.carousel-button {
@@ -300,33 +339,27 @@
 			</a>
 			
 			<div class="project-header">
-				<h1>Sistema Publiprim</h1>
-				<p class="project-subtitle">Sistema de gestión de pedidos para una imprenta en Guatemala, desarrollado en PHP con arquitectura MVC</p>
+				<h1>Sistema de Seguridad Integrado para "A tu Medida"</h1>
+				<p class="project-subtitle">Solución Profesional para Protección Total</p>
 			</div>
 			
 			<!-- Carousel -->
 			<div class="project-carousel">
 				<div class="carousel-container">
 					<div class="carousel-slides" id="carouselSlides">
+						<!-- Placeholder temporal hasta agregar las fotos -->
 						<div class="carousel-slide">
-							<img src="img/proyectos/01/dashboard1.png" alt="Dashboard Sistema Publiprim">
+							<div class="carousel-placeholder">
+								Imágenes del proyecto próximamente
+							</div>
 						</div>
-						<div class="carousel-slide">
-							<img src="img/proyectos/01/dashboard2.png" alt="Dashboard 2">
-						</div>
-						<div class="carousel-slide">
-							<img src="img/proyectos/01/pedidos.png" alt="Gestión de Pedidos">
-						</div>
-						<div class="carousel-slide">
-							<img src="img/proyectos/01/nuevo-pedido.png" alt="Nuevo Pedido">
-						</div>
-						<div class="carousel-slide">
-							<img src="img/proyectos/01/filtro-pedidos2.png" alt="Filtros de Pedidos">
-						</div>
-						<!-- Agregar aquí la imagen de topología cuando esté lista -->
+						<!-- Agregar aquí las imágenes cuando estén listas -->
 						<!-- 
 						<div class="carousel-slide">
-							<img src="img/proyectos/01/topologia.png" alt="Topología del Sistema">
+							<img src="img/proyectos/02/imagen1.jpg" alt="Sistema de Seguridad">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/02/imagen2.jpg" alt="Cámaras de Vigilancia">
 						</div>
 						-->
 					</div>
@@ -348,200 +381,138 @@
 			<div class="project-content">
 				<div class="project-section">
 					<h2>Descripción General</h2>
-					<p>Sistema de gestión de pedidos para una imprenta en Guatemala, desarrollado en PHP con arquitectura MVC. Incluye gestión completa de pedidos, clientes, usuarios, notificaciones en tiempo real y sistema de roles.</p>
-				</div>
-				
-				<div class="project-section">
-					<h2>Arquitectura</h2>
-					<div class="tech-stack">
-						<span class="tech-badge">PHP MVC</span>
-						<span class="tech-badge">MySQL/MariaDB</span>
-						<span class="tech-badge">jQuery</span>
-						<span class="tech-badge">DataTables</span>
-						<span class="tech-badge">Select2</span>
-						<span class="tech-badge">WebSocket</span>
-						<span class="tech-badge">Font Awesome</span>
-					</div>
-					<ul>
-						<li><strong>Backend:</strong> PHP con arquitectura MVC</li>
-						<li><strong>Base de datos:</strong> MySQL/MariaDB</li>
-						<li><strong>Frontend:</strong> jQuery, DataTables, Select2, Font Awesome</li>
-						<li><strong>Tiempo real:</strong> WebSocket para notificaciones instantáneas</li>
-						<li><strong>Config:</strong> Variables de entorno seguras</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Estructura de Datos Principal</h2>
-					<h3>Tablas principales:</h3>
-					<ul>
-						<li><strong>Clientes</strong> - Información de clientes</li>
-						<li><strong>Pedidos</strong> - Gestión de órdenes con seguimiento</li>
-						<li><strong>Ventas</strong> - Ítems y detalles de cada pedido</li>
-						<li><strong>Cobros</strong> - Pagos y abonos</li>
-						<li><strong>Usuarios</strong> - Control de acceso con roles</li>
-						<li><strong>Notificaciones</strong> - Centro de notificaciones</li>
-						<li><strong>Tareas</strong> - Notas compartidas del equipo</li>
-						<li><strong>Archivos</strong> - Carpeta compartida de documentos</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Sistema de Tracking</h2>
-					<p>Los pedidos tienen 7 estados de tracking (0-6):</p>
-					<ul>
-						<li><strong>0.</strong> Anulado</li>
-						<li><strong>1.</strong> Entregado</li>
-						<li><strong>2.</strong> Avisar</li>
-						<li><strong>3.</strong> Impreso</li>
-						<li><strong>4.</strong> Confirmado</li>
-						<li><strong>5.</strong> Diseñado</li>
-						<li><strong>6.</strong> Pendiente</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Sistema de Roles</h2>
-					<ul>
-						<li><strong>Superuser:</strong> Acceso total</li>
-						<li><strong>Staff:</strong> Acceso a tracking completo</li>
-						<li><strong>Vendor:</strong> Acceso a Anulado, Entregado, Avisar, Diseñado, Pendiente</li>
-						<li><strong>Designer:</strong> Solo Diseñado y Pendiente</li>
-						<li><strong>Printer:</strong> Impreso, Confirmado y Avisar</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Sistema de Notificaciones en Tiempo Real</h2>
-					<ul>
-						<li><strong>Servidor WebSocket</strong> - Sistema de mensajería en tiempo real</li>
-						<li><strong>Cliente WebSocket</strong> - Envío de mensajes al servidor</li>
-						<li><strong>Acciones notificables:</strong>
-							<ul>
-								<li>Actualización automática de tablas de pedidos</li>
-								<li>Notificaciones instantáneas de cambios</li>
-								<li>Sincronización de notas compartidas</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Funcionalidades Principales</h2>
-					<div class="features-grid">
-						<div class="feature-card">
-							<h4>Gestión de Pedidos</h4>
-							<ul>
-								<li>Crear/editar pedidos con ítems y abonos</li>
-								<li>Cambio de estado (tracking)</li>
-								<li>Generación de PDF</li>
-								<li>Sistema de carpetas compartidas automático</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Centro de Notificaciones</h4>
-							<ul>
-								<li>Registro de todas las acciones del sistema</li>
-								<li>Badge con contador de notificaciones no vistas</li>
-								<li>Auditoría de cambios</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Notas Compartidas (ToDo)</h4>
-							<ul>
-								<li>Lista de tareas pendientes compartida</li>
-								<li>Estado done/undone</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Gestión de Usuarios</h4>
-							<ul>
-								<li>CRUD de usuarios</li>
-								<li>Asignación de roles y permisos</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Cotizaciones</h4>
-							<ul>
-								<li>Sistema de cotizaciones</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Deudores</h4>
-							<ul>
-								<li>Control de cuentas por cobrar</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="project-section">
-					<h2>Helpers y Utilidades</h2>
-					<ul>
-						<li>Formateo automático de IDs de pedidos</li>
-						<li>Formateo de fechas y horarios</li>
-						<li>Sistema de gestión de notificaciones</li>
-						<li>Cliente para comunicación en tiempo real</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Frontend</h2>
-					<ul>
-						<li>Diseño responsive con menú toggle</li>
-						<li>DataTables para tablas dinámicas</li>
-						<li>Select2 para selectores mejorados</li>
-						<li>Indicadores visuales por estado de tracking</li>
-						<li>Actualización en tiempo real vía WebSocket</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Autenticación</h2>
-					<ul>
-						<li>Sistema de login seguro</li>
-						<li>Encriptación de contraseñas</li>
-						<li>Sistema de permisos por rol</li>
-						<li>Gestión de sesiones</li>
-					</ul>
-				</div>
-				
-				<div class="project-section">
-					<h2>Topología del Sistema en Producción</h2>
-					<p>El sistema está desplegado en una red local con 4 estaciones de trabajo, cada una con acceso personalizado según su rol:</p>
-					<div class="features-grid">
-						<div class="feature-card">
-							<h4>Estación de Ventas</h4>
-							<ul>
-								<li>Atención al cliente</li>
-								<li>Creación de pedidos</li>
-								<li>Gestión de cobros</li>
-								<li>Seguimiento completo de órdenes</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Estaciones de Diseño (x2)</h4>
-							<ul>
-								<li>Vista de pedidos pendientes</li>
-								<li>Cambio a estado "Diseñado"</li>
-								<li>Acceso a archivos compartidos</li>
-								<li>Notificaciones de nuevos trabajos</li>
-							</ul>
-						</div>
-						<div class="feature-card">
-							<h4>Estación de Impresión</h4>
-							<ul>
-								<li>Vista de pedidos confirmados</li>
-								<li>Control de trabajos impresos</li>
-								<li>Actualización de estados</li>
-								<li>Gestión de producción</li>
-							</ul>
-						</div>
-					</div>
-					<p style="margin-top: var(--spacing-md); font-style: italic; color: var(--text-secondary);">
-						Todas las estaciones se sincronizan en tiempo real mediante WebSocket, permitiendo que cualquier cambio realizado 
-						en una computadora se refleje instantáneamente en las demás, optimizando el flujo de trabajo del equipo.
+					<p>
+						En la tienda <strong>A tu Medida</strong> desarrollé e instalé una solución de seguridad completa que combina videovigilancia inteligente, 
+						detección de intrusos y respaldo eléctrico, diseñada para proteger cada rincón del negocio las 24 horas del día.
 					</p>
+					<p>
+						Este proyecto demuestra cómo una instalación profesional y bien estructurada puede elevar el nivel de seguridad de cualquier comercio, 
+						evitar pérdidas y brindar tranquilidad al propietario.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Tecnologías Implementadas</h2>
+					<div class="tech-stack">
+						<span class="tech-badge">Hikvision</span>
+						<span class="tech-badge">Cámaras IP</span>
+						<span class="tech-badge">DVR/NVR</span>
+						<span class="tech-badge">Sistema de Alarma</span>
+						<span class="tech-badge">PoE Switch</span>
+						<span class="tech-badge">UPS 3000VA</span>
+						<span class="tech-badge">Sensores de Movimiento</span>
+					</div>
+				</div>
+				
+				<div class="project-section">
+					<h2>Protección Total en Todo Momento</h2>
+					<p>
+						Instalamos un sistema de cámaras estratégicamente distribuidas que permite vigilar entradas, pasillos, caja y áreas de almacenamiento.
+					</p>
+					<p>
+						Las cámaras IP y analógicas ofrecen imágenes nítidas y confiables, mientras que el grabador central garantiza que 
+						todo quede registrado sin interrupciones.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Alarma Profesional con Respuesta Inmediata</h2>
+					<p>
+						El sistema de intrusión integra sensores de movimiento, magnéticos para persianas y una sirena de alta potencia.
+					</p>
+					<p>
+						Esto permite detectar cualquier intento de acceso no autorizado y activar alertas inmediatas, 
+						reduciendo al mínimo los riesgos de robo.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Conectividad y Respaldo Eléctrico Garantizados</h2>
+					<p>
+						El diseño incluye un UPS de 3000 VA, que mantiene la operación del sistema aun durante cortes de energía.
+					</p>
+					<p>
+						Todo el cableado, switch PoE, router y grabador se alojan en un gabinete seguro que protege los equipos 
+						y mantiene la instalación ordenada y profesional.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Monitoreo desde Cualquier Lugar</h2>
+					<p>
+						El cliente puede ver sus cámaras en tiempo real desde su celular, recibir notificaciones de alarma y revisar grabaciones cuando lo necesite.
+					</p>
+					<p>
+						Esto transforma cualquier tienda en un espacio mucho más seguro, incluso cuando el propietario no está presente.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Componentes del Sistema</h2>
+					<div class="features-grid">
+						<div class="feature-card">
+							<h4>Videovigilancia</h4>
+							<ul>
+								<li>Cámaras IP y analógicas</li>
+								<li>Grabador DVR/NVR</li>
+								<li>Cobertura estratégica total</li>
+								<li>Grabación continua 24/7</li>
+							</ul>
+						</div>
+						<div class="feature-card">
+							<h4>Sistema de Alarma</h4>
+							<ul>
+								<li>Sensores de movimiento</li>
+								<li>Contactos magnéticos</li>
+								<li>Sirena de alta potencia</li>
+								<li>Alertas instantáneas</li>
+							</ul>
+						</div>
+						<div class="feature-card">
+							<h4>Infraestructura</h4>
+							<ul>
+								<li>UPS 3000 VA</li>
+								<li>Switch PoE</li>
+								<li>Router dedicado</li>
+								<li>Gabinete de seguridad</li>
+							</ul>
+						</div>
+						<div class="feature-card">
+							<h4>Acceso Remoto</h4>
+							<ul>
+								<li>Monitoreo desde celular</li>
+								<li>Notificaciones en tiempo real</li>
+								<li>Reproducción de grabaciones</li>
+								<li>Control de alarma remoto</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="project-section">
+					<h2>Un Proyecto Pensado para Crecer</h2>
+					<p>
+						La arquitectura instalada permite agregar más cámaras, sensores o dispositivos sin necesidad de cambiar el sistema principal.
+					</p>
+					<p>
+						Es una inversión inteligente que sigue protegiendo conforme crece el negocio.
+					</p>
+				</div>
+				
+				<div class="highlight-box">
+					<h3>¿Por qué elegirme para tu proyecto?</h3>
+					<ul>
+						<li>Diseño profesional y personalizado</li>
+						<li>Selección de equipos Hikvision de alta calidad</li>
+						<li>Instalación limpia, ordenada y documentada</li>
+						<li>Integración de videovigilancia, alarma y respaldo eléctrico</li>
+						<li>Soporte y acompañamiento técnico directo</li>
+					</ul>
+					<p style="margin-top: var(--spacing-md); margin-bottom: 0;">
+						Si buscas implementar un sistema de seguridad que realmente funcione, como este proyecto de <strong>A tu Medida</strong>, 
+						puedo diseñar una solución personalizada para tu negocio.
+					</p>
+                    <a href="alianza.html" class="service-cta btn-accent" target="_blank" style="margin-top:1rem;display:inline-block;">Ver Alianza Hikvision & Kemik</a>
 				</div>
 				
 				<a href="index.html#proyectos" class="back-button">
@@ -599,10 +570,12 @@
 			updateCarousel();
 		}
 		
-		// Auto-play carousel
-		setInterval(() => {
-			moveSlide(1);
-		}, 5000);
+		// Auto-play carousel (only if more than 1 slide)
+		if (totalSlides > 1) {
+			setInterval(() => {
+				moveSlide(1);
+			}, 5000);
+		}
 		
 		// Keyboard navigation
 		document.addEventListener('keydown', (e) => {
