@@ -923,7 +923,6 @@ ul {
 	border-radius: var(--radius-md);
 	font-weight: 700;
 	transition: var(--transition-base);
-	margin-top: var(--spacing-sm);
 	align-self: flex-start;
 }
 
