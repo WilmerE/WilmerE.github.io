@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Planificación Técnica Previa con Simulación 3D de Cámaras de Seguridad - Análisis y diseño antes de la instalación física">
+	<meta name="keywords" content="simulación 3D, cámaras de seguridad, planificación técnica, videovigilancia, modelado 3D, diseño de seguridad, CCTV">
+	<meta name="author" content="Wilmer Pelicó">
+	<meta name="theme-color" content="#003770">
+	
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Simulación 3D de Cámaras de Seguridad - P3L1CO">
+	<meta property="og:description" content="Planificación avanzada con modelado 3D del terreno y simulación de vistas de cámaras para garantizar cobertura completa antes de la instalación">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://wilmere.github.io/proyecto-simulacion.html">
+	<meta property="og:image" content="https://wilmere.github.io/img/proyectos/03/Topología.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Simulación 3D de Cámaras de Seguridad - P3L1CO">
+	<meta name="twitter:description" content="Planificación avanzada con modelado 3D del terreno y simulación de vistas de cámaras">
+	<meta name="twitter:image" content="https://wilmere.github.io/img/proyectos/03/Topología.jpg">
+	
+	<title>Simulación 3D de Cámaras de Seguridad - Wilmer Pelicó</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="icon" href="img/favicon.ico" type="image/png">
+	<style>
+		.project-detail {
+			padding: var(--spacing-xl) 0;
+			background: var(--bg-secondary);
+		}
+		
+		.project-header {
+			text-align: center;
+			margin-bottom: var(--spacing-xl);
+		}
+		
+		.project-header h1 {
+			font-size: 2.5rem;
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-sm);
+		}
+		
+		.project-subtitle {
+			font-size: 1.25rem;
+			color: var(--text-secondary);
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		
+		.project-carousel {
+			max-width: 1200px;
+			margin: 0 auto var(--spacing-xl);
+			background: white;
+			border-radius: var(--radius-xl);
+			overflow: hidden;
+			box-shadow: var(--shadow-lg);
+			position: relative;
+		}
+		
+		.carousel-container {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+		}
+		
+		.carousel-slides {
+			display: flex;
+			transition: transform 0.5s ease-in-out;
+		}
+		
+		.carousel-slide {
+			min-width: 100%;
+			position: relative;
+		}
+		
+		.carousel-slide img {
+			width: 100%;
+			height: 500px;
+			object-fit: contain;
+			display: block;
+			background: #f8f9fa;
+		}
+		
+		.carousel-button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0, 55, 112, 0.8);
+			color: white;
+			border: none;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			z-index: 10;
+		}
+		
+		.carousel-button:hover {
+			background: var(--primary-color);
+			transform: translateY(-50%) scale(1.1);
+		}
+		
+		.carousel-button.prev {
+			left: 20px;
+		}
+		
+		.carousel-button.next {
+			right: 20px;
+		}
+		
+		.carousel-indicators {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			padding: 20px;
+			background: white;
+		}
+		
+		.indicator {
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: var(--border-color);
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.indicator.active {
+			background: var(--primary-color);
+			transform: scale(1.3);
+		}
+		
+		.project-content {
+			max-width: 1200px;
+			margin: 0 auto;
+			background: white;
+			padding: var(--spacing-xl);
+			border-radius: var(--radius-xl);
+			box-shadow: var(--shadow-md);
+		}
+		
+		.project-section {
+			margin-bottom: var(--spacing-lg);
+		}
+		
+		.project-section h2 {
+			font-size: 1.75rem;
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-md);
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		
+		.project-section h3 {
+			font-size: 1.5rem;
+			color: var(--primary-color);
+			margin: var(--spacing-md) 0 var(--spacing-sm);
+		}
+		
+		.project-section p {
+			font-size: 1.125rem;
+			line-height: 1.8;
+			color: var(--text-secondary);
+			margin-bottom: var(--spacing-md);
+		}
+		
+		.project-section ul {
+			list-style: none;
+			padding-left: 0;
+		}
+		
+		.project-section ul li {
+			padding: 0.5rem 0;
+			padding-left: 1.5rem;
+			position: relative;
+			color: var(--text-secondary);
+			line-height: 1.6;
+		}
+		
+		.project-section ul li::before {
+			content: '✓';
+			position: absolute;
+			left: 0;
+			color: var(--primary-color);
+			font-weight: bold;
+			font-size: 1.2rem;
+		}
+		
+		.tech-stack {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			margin-top: var(--spacing-md);
+		}
+		
+		.tech-badge {
+			padding: 0.5rem 1rem;
+			background: var(--gradient-primary);
+			color: white;
+			border-radius: var(--radius-md);
+			font-weight: 500;
+			font-size: 0.9rem;
+		}
+		
+		.features-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: var(--spacing-md);
+			margin-top: var(--spacing-md);
+		}
+		
+		.feature-card {
+			background: var(--bg-secondary);
+			padding: var(--spacing-md);
+			border-radius: var(--radius-lg);
+			border-left: 4px solid var(--primary-color);
+		}
+		
+		.feature-card h4 {
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-sm);
+			font-size: 1.125rem;
+		}
+		
+		.highlight-box {
+			background: linear-gradient(135deg, #003770 0%, #005bbd 100%);
+			color: white;
+			padding: var(--spacing-lg);
+			border-radius: var(--radius-lg);
+			margin: var(--spacing-lg) 0;
+		}
+		
+		.highlight-box h3 {
+			color: white;
+			margin-top: 0;
+		}
+		
+		.highlight-box ul li {
+			color: white;
+		}
+		
+		.highlight-box ul li::before {
+			color: var(--accent-color);
+		}
+		
+		.back-button {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 1rem 2rem;
+			background: var(--gradient-primary);
+			color: white;
+			text-decoration: none;
+			border-radius: var(--radius-md);
+			font-weight: 600;
+			transition: all 0.3s ease;
+			margin-top: var(--spacing-lg);
+		}
+		
+		.back-button:hover {
+			transform: translateX(-5px);
+			box-shadow: var(--shadow-md);
+		}
+		
+		@media (max-width: 768px) {
+			.project-header h1 {
+				font-size: 1.75rem;
+			}
+			
+			.carousel-slide img {
+				height: 300px;
+			}
+			
+			.carousel-button {
+				width: 40px;
+				height: 40px;
+			}
+			
+			.carousel-button.prev {
+				left: 10px;
+			}
+			
+			.carousel-button.next {
+				right: 10px;
+			}
+			
+			.project-content {
+				padding: var(--spacing-md);
+			}
+			
+			.features-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+		
+		/* Logo en navbar del proyecto */
+		.navbar .logo-img {
+			height: 40px;
+			width: auto;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container nav-container">
+			<a href="index.html" class="logo">
+				<img src="img/milogo/horizontal.png" alt="Wilmer Pelicó" class="logo-img">
+			</a>
+		</div>
+	</nav>
+	
+	<main class="project-detail">
+		<div class="container">
+			<a href="index.html#proyectos" class="back-button" style="margin-bottom: var(--spacing-lg);">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<polyline points="15 18 9 12 15 6"/>
+				</svg>
+				Volver a Proyectos
+			</a>
+			
+			<div class="project-header">
+				<h1>Planificación Técnica con Simulación 3D de Cámaras</h1>
+				<p class="project-subtitle">Análisis y diseño antes de la instalación física</p>
+			</div>
+			
+			<!-- Carousel -->
+			<div class="project-carousel">
+				<div class="carousel-container">
+					<div class="carousel-slides" id="carouselSlides">
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/Topología.jpg" alt="Topología del Sistema">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/vista-general.jpeg" alt="Vista General del Terreno">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/vsita-general2.jpeg" alt="Vista General Alternativa">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/vista1.jpeg" alt="Simulación de Vista Cámara 1">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/vista2.jpeg" alt="Simulación de Vista Cámara 2">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/vista3.jpeg" alt="Simulación de Vista Cámara 3">
+						</div>
+						<div class="carousel-slide">
+							<img src="img/proyectos/03/antena-instalada.jpg" alt="Antena Instalada" style="object-fit:contain;">
+						</div>
+                        <div class="carousel-slide">
+							<img src="img/proyectos/03/gabinete-instalado.jpg" alt="Gabinete Instalado">
+						</div>
+					</div>
+					<button class="carousel-button prev" onclick="moveSlide(-1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="15 18 9 12 15 6"/>
+						</svg>
+					</button>
+					<button class="carousel-button next" onclick="moveSlide(1)">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<polyline points="9 18 15 12 9 6"/>
+						</svg>
+					</button>
+				</div>
+				<div class="carousel-indicators" id="carouselIndicators"></div>
+			</div>
+			
+			<!-- Contenido del Proyecto -->
+			<div class="project-content">
+				<div class="project-section">
+					<h2>Visión General del Proyecto</h2>
+					<p>
+						Antes de realizar cualquier instalación física, se llevó a cabo una fase de planificación avanzada, 
+						utilizando un modelo 3D del terreno basado en medidas reales y referencias visuales del sitio.
+					</p>
+					<p>
+						El objetivo fue simular las vistas reales de las cámaras, optimizar su ubicación y garantizar una 
+						cobertura eficiente sin puntos ciegos.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Tecnologías y Herramientas Implementadas</h2>
+					<div class="tech-stack">
+						<span class="tech-badge">Modelado 3D</span>
+						<span class="tech-badge">Simulación de Vistas</span>
+						<span class="tech-badge">Cámaras IP</span>
+						<span class="tech-badge">Planificación Técnica</span>
+						<span class="tech-badge">Análisis de Cobertura</span>
+					</div>
+				</div>
+				
+				<div class="project-section">
+					<h2>Modelado del Entorno</h2>
+					<p>
+						Representación 3D del terreno completo, incluyendo:
+					</p>
+					<ul>
+						<li>Área central (estanque / charca)</li>
+						<li>Límites del terreno</li>
+						<li>Construcciones existentes</li>
+						<li>Colores y geometría simplificada para facilitar el análisis visual</li>
+						<li>Escala realista para simular distancias y ángulos de visión</li>
+					</ul>
+				</div>
+				
+				<div class="project-section">
+					<h2>Simulación de Cámaras de Seguridad</h2>
+					<p>
+						Inicialmente se planteó una configuración de 3 cámaras IP, las cuales fueron ubicadas virtualmente 
+						en puntos estratégicos.
+					</p>
+					<p>
+						Mediante vistas simuladas tipo "visión de cámara", se evaluó:
+					</p>
+					<ul>
+						<li>Ángulo de cobertura</li>
+						<li>Alcance visual</li>
+						<li>Zonas visibles y zonas muertas</li>
+						<li>Interferencias visuales (paredes, estructuras, bordes del terreno)</li>
+					</ul>
+					<p style="margin-top: var(--spacing-md);">
+						<strong>Resultado del análisis:</strong><br>
+						Se determinó que una cuarta cámara era necesaria para cubrir adecuadamente un sector que no quedaba 
+						totalmente protegido con la configuración inicial.
+					</p>
+				</div>
+				
+				<div class="project-section">
+					<h2>Ajuste del Diseño (Optimización)</h2>
+					<p>
+						Gracias a la simulación previa:
+					</p>
+					<ul>
+						<li>Se redefinieron los puntos de montaje</li>
+						<li>Se optimizó la orientación de cada cámara</li>
+						<li>Se logró una cobertura perimetral completa, sin redundancias innecesarias</li>
+						<li>Se evitó instalar equipos "a prueba y error"</li>
+					</ul>
+				</div>
+				
+				<div class="project-section">
+					<h2>Beneficios del Enfoque</h2>
+					<div class="features-grid">
+						<div class="feature-card">
+							<h4>Cobertura Garantizada</h4>
+							<p>Validación completa antes de la instalación física, eliminando incertidumbre.</p>
+						</div>
+						<div class="feature-card">
+							<h4>Reducción de Costos</h4>
+							<p>Sin necesidad de reposicionar equipos o comprar cámaras adicionales no planificadas.</p>
+						</div>
+						<div class="feature-card">
+							<h4>Decisiones Técnicas Justificadas</h4>
+							<p>Cada ubicación respaldada por análisis visual y simulación, no improvisación.</p>
+						</div>
+						<div class="feature-card">
+							<h4>Mayor Confianza</h4>
+							<p>El cliente visualiza el resultado final antes de la ejecución.</p>
+						</div>
+						<div class="feature-card">
+							<h4>Instalación Precisa</h4>
+							<p>Proceso más rápido y sin correcciones posteriores.</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="highlight-box">
+					<h3>Valor Agregado del Servicio</h3>
+					<p>
+						Este enfoque demuestra un nivel profesional de planificación, normalmente utilizado en proyectos 
+						empresariales o de alta seguridad, aplicado aquí para ofrecer al cliente:
+					</p>
+					<p style="text-align: center; font-size: 1.25rem; margin: var(--spacing-md) 0;">
+						<strong>"Una solución pensada, diseñada y validada antes de colocar el primer tornillo."</strong>
+					</p>
+					<p style="margin-top: var(--spacing-lg); margin-bottom: 0; text-align: center;">
+						<strong>P3L1CO Servicios Informáticos</strong><br>
+						Diseñamos la seguridad antes de instalarla.<br>
+						Tecnología, planificación y precisión.
+					</p>
+                    <a href="alianza.html" class="service-cta btn-accent" target="_blank" style="margin-top:1rem;display:inline-block;">Ver Alianza Hikvision & Kemik</a>
+				</div>
+				
+				<a href="index.html#proyectos" class="back-button">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<polyline points="15 18 9 12 15 6"/>
+					</svg>
+					Volver a Proyectos
+				</a>
+			</div>
+		</div>
+	</main>
+	
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-bottom">
+				<p>&copy; 2025 Wilmer Pelicó. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+	
+	<script>
+		// Carousel functionality
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('.carousel-slide');
+		const totalSlides = slides.length;
+		
+		// Create indicators
+		const indicatorsContainer = document.getElementById('carouselIndicators');
+		for (let i = 0; i < totalSlides; i++) {
+			const indicator = document.createElement('div');
+			indicator.className = 'indicator' + (i === 0 ? ' active' : '');
+			indicator.onclick = () => goToSlide(i);
+			indicatorsContainer.appendChild(indicator);
+		}
+		
+		function updateCarousel() {
+			const slidesContainer = document.getElementById('carouselSlides');
+			slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+			
+			// Update indicators
+			document.querySelectorAll('.indicator').forEach((indicator, index) => {
+				indicator.classList.toggle('active', index === currentSlide);
+			});
+		}
+		
+		function moveSlide(direction) {
+			currentSlide += direction;
+			if (currentSlide < 0) currentSlide = totalSlides - 1;
+			if (currentSlide >= totalSlides) currentSlide = 0;
+			updateCarousel();
+		}
+		
+		function goToSlide(index) {
+			currentSlide = index;
+			updateCarousel();
+		}
+		
+		// Auto-play carousel
+		setInterval(() => {
+			moveSlide(1);
+		}, 5000);
+		
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft') moveSlide(-1);
+			if (e.key === 'ArrowRight') moveSlide(1);
+		});
+	</script>
+</body>
+</html>
