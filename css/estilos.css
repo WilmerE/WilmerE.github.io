@@ -927,6 +927,7 @@ ul {
 }
 
 .service-cta:hover {
+	color: var(--bg-primary) !important;
 	background: #d4b514;
 	transform: translateX(5px);
 	box-shadow: 0 5px 15px rgba(189, 161, 19, 0.3);

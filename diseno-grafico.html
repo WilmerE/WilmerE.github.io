@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Portafolio de Diseño Gráfico - Animaciones, Logotipos, Tarjetas Digitales y más. Proyectos creativos de Wilmer Pelicó">
+	<meta name="keywords" content="diseño gráfico, animación, logotipos, After Effects, Illustrator, Photoshop, tarjetas digitales, invitaciones">
+	<meta name="author" content="Wilmer Pelicó">
+	<meta name="theme-color" content="#003770">
+	
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Diseño Gráfico - Portfolio P3L1CO">
+	<meta property="og:description" content="Animaciones, logotipos, tarjetas digitales y desarrollo creativo. Proyectos de diseño gráfico profesional">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://wilmere.github.io/diseno-grafico.html">
+	<meta property="og:image" content="https://wilmere.github.io/img/milogo/Diseño_imagotipo.png">
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Diseño Gráfico - Portfolio P3L1CO">
+	<meta name="twitter:description" content="Animaciones, logotipos y desarrollo creativo">
+	
+	<title>Diseño Gráfico - Wilmer Pelicó</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="icon" href="img/favicon.ico" type="image/png">
+	<style>
+		.design-section {
+			padding: var(--spacing-xl) 0;
+			background: var(--bg-secondary);
+		}
+		
+		.design-header {
+			text-align: center;
+			margin-bottom: var(--spacing-xl);
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.design-header h1 {
+			font-size: 2.5rem;
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-md);
+		}
+		
+		.design-header p {
+			font-size: 1.1rem;
+			color: var(--text-secondary);
+			line-height: 1.6;
+		}
+		
+		.category-section {
+			margin-bottom: var(--spacing-xl);
+		}
+		
+		.category-title {
+			font-size: 2rem;
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-md);
+			text-align: center;
+			position: relative;
+			padding-bottom: var(--spacing-sm);
+		}
+		
+		.category-title::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 80px;
+			height: 3px;
+			background: var(--gradient-accent);
+			border-radius: 2px;
+		}
+		
+		.category-description {
+			text-align: center;
+			color: var(--text-secondary);
+			margin-bottom: var(--spacing-lg);
+			font-size: 1rem;
+		}
+		
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: var(--spacing-lg);
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 var(--spacing-md);
+		}
+		
+		.project-card {
+			background: var(--bg-primary);
+			border-radius: var(--radius-lg);
+			overflow: hidden;
+			box-shadow: var(--shadow-md);
+			transition: var(--transition-base);
+		}
+		
+		.project-card:hover {
+			transform: translateY(-5px);
+			box-shadow: var(--shadow-lg);
+		}
+		
+		.project-content {
+			position: relative;
+			width: 100%;
+			background: #000;
+		}
+		
+		/* Videos de TikTok */
+		.tiktok-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 177%; /* Aspect ratio 9:16 para TikTok */
+			overflow: hidden;
+			background: #000;
+		}
+		
+		.tiktok-container iframe,
+		.tiktok-container blockquote {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+		
+		/* iframes de webs */
+		.web-container {
+			position: relative;
+			width: 100%;
+			height: 600px;
+			overflow: hidden;
+			border-radius: var(--radius-md) var(--radius-md) 0 0;
+		}
+		
+		.web-container iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+		
+		.project-info {
+			padding: var(--spacing-md);
+		}
+		
+		.project-info h3 {
+			color: var(--text-primary);
+			margin-bottom: var(--spacing-sm);
+			font-size: 1.25rem;
+		}
+		
+		.project-info p {
+			color: var(--text-secondary);
+			line-height: 1.6;
+			margin-bottom: var(--spacing-sm);
+		}
+		
+		.project-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-top: var(--spacing-sm);
+		}
+		
+		.tag {
+			display: inline-block;
+			padding: 0.25rem 0.75rem;
+			background: var(--accent-color);
+			color: var(--text-light);
+			border-radius: var(--radius-sm);
+			font-size: 0.85rem;
+			font-weight: 600;
+		}
+		
+		.project-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--secondary-color);
+			text-decoration: none;
+			font-weight: 600;
+			margin-top: var(--spacing-sm);
+			transition: var(--transition-base);
+		}
+		
+		.project-link:hover {
+			color: #d4b514;
+			transform: translateX(5px);
+		}
+		
+		.back-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: var(--spacing-md) var(--spacing-lg);
+			background: var(--secondary-color);
+			color: var(--bg-primary);
+			text-decoration: none;
+			border-radius: var(--radius-md);
+			font-weight: 700;
+			margin: var(--spacing-xl) auto;
+			transition: var(--transition-base);
+		}
+		
+		.back-link:hover {
+			background: #d4b514;
+			transform: translateX(-5px);
+		}
+		
+		.back-container {
+			text-align: center;
+			padding: var(--spacing-xl) 0;
+		}
+		
+		@media (max-width: 768px) {
+			.design-header h1 {
+				font-size: 2rem;
+			}
+			
+			.category-title {
+				font-size: 1.5rem;
+			}
+			
+			.projects-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.web-container {
+				height: 500px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="index.html" class="nav-brand">
+				<img src="img/milogo/logotipo_solo.svg" alt="P3L1CO" class="brand-logo">
+			</a>
+			<button class="nav-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-menu">
+				<li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+				<li class="nav-item"><a href="index.html#proyectos" class="nav-link">Proyectos</a></li>
+				<li class="nav-item"><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+				<li class="nav-item"><a href="index.html#habilidades" class="nav-link">Habilidades</a></li>
+				<li class="nav-item"><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Main Content -->
+	<main class="design-section">
+		<div class="container">
+			<header class="design-header">
+				<h1>Diseño Gráfico & Multimedia</h1>
+				<p>
+					Animaciones profesionales, identidad visual y desarrollo creativo. 
+					Combinando diseño, tecnología y movimiento para comunicar ideas de forma efectiva.
+				</p>
+			</header>
+
+			<!-- Sección de Animaciones -->
+			<section class="category-section">
+				<h2 class="category-title">Animaciones & Motion Graphics</h2>
+				<p class="category-description">
+					Animaciones de logotipos y motion graphics creados en After Effects, Illustrator y Photoshop
+				</p>
+				
+				<div class="projects-grid">
+					<!-- Proyecto 1: Animación TikTok -->
+					<article class="project-card">
+						<div class="project-content tiktok-container">
+							<blockquote class="tiktok-embed" cite="https://vm.tiktok.com/ZMDLKsrcN/" data-unique-id="wilmerpelico" data-embed-type="creator">
+								<section>
+									<a target="_blank" href="https://vm.tiktok.com/ZMDLKsrcN/">Ver en TikTok</a>
+								</section>
+							</blockquote>
+						</div>
+						<div class="project-info">
+							<h3>Animación de Logotipo</h3>
+							<p>Animación profesional de logotipo con efectos de motion graphics y transiciones fluidas.</p>
+							<div class="project-tags">
+								<span class="tag">After Effects</span>
+								<span class="tag">Illustrator</span>
+								<span class="tag">Motion Graphics</span>
+							</div>
+							<a href="https://vm.tiktok.com/ZMDLKsrcN/" target="_blank" class="project-link">
+								Ver en TikTok →
+							</a>
+						</div>
+					</article>
+
+					<!-- Proyecto 2: Animación TikTok -->
+					<article class="project-card">
+						<div class="project-content tiktok-container">
+							<blockquote class="tiktok-embed" cite="https://vm.tiktok.com/ZMDLKx2Ba/" data-unique-id="wilmerpelico" data-embed-type="creator">
+								<section>
+									<a target="_blank" href="https://vm.tiktok.com/ZMDLKx2Ba/">Ver en TikTok</a>
+								</section>
+							</blockquote>
+						</div>
+						<div class="project-info">
+							<h3>Animación de Marca</h3>
+							<p>Desarrollo de animación corporativa con timing profesional y composición dinámica.</p>
+							<div class="project-tags">
+								<span class="tag">After Effects</span>
+								<span class="tag">Photoshop</span>
+								<span class="tag">Branding</span>
+							</div>
+							<a href="https://vm.tiktok.com/ZMDLKx2Ba/" target="_blank" class="project-link">
+								Ver en TikTok →
+							</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- Sección de Desarrollos Web/Interactivos -->
+			<section class="category-section">
+				<h2 class="category-title">Diseño Web Interactivo</h2>
+				<p class="category-description">
+					Tarjetas digitales y experiencias web personalizadas desarrolladas con HTML, CSS y JavaScript puro
+				</p>
+				
+				<div class="projects-grid">
+					<!-- Proyecto 3: Tarjeta Digital Boda -->
+					<article class="project-card">
+						<div class="project-content web-container">
+							<iframe src="https://boda-carlosyjosselin.web.app" 
+									title="Invitación Digital - Carlos y Josselin"
+									loading="lazy">
+							</iframe>
+						</div>
+						<div class="project-info">
+							<h3>Invitación Digital de Boda</h3>
+							<p>Tarjeta de invitación interactiva con animaciones CSS, contador regresivo y mapa de ubicación integrado.</p>
+							<div class="project-tags">
+								<span class="tag">HTML</span>
+								<span class="tag">CSS</span>
+								<span class="tag">JavaScript</span>
+								<span class="tag">Responsive</span>
+							</div>
+							<a href="https://boda-carlosyjosselin.web.app" target="_blank" class="project-link">
+								Abrir Sitio →
+							</a>
+						</div>
+					</article>
+
+					<!-- Proyecto 4: Tarjeta Digital -->
+					<article class="project-card">
+						<div class="project-content web-container">
+							<iframe src="https://axel-y-stephanie.web.app/01" 
+									title="Invitación Digital - Axel y Stephanie"
+									loading="lazy">
+							</iframe>
+						</div>
+						<div class="project-info">
+							<h3>Invitación Digital Personalizada</h3>
+							<p>Experiencia web elegante con diseño personalizado, galería de fotos y confirmación de asistencia integrada.</p>
+							<div class="project-tags">
+								<span class="tag">HTML</span>
+								<span class="tag">CSS</span>
+								<span class="tag">JavaScript</span>
+								<span class="tag">UI/UX</span>
+							</div>
+							<a href="https://axel-y-stephanie.web.app/01" target="_blank" class="project-link">
+								Abrir Sitio →
+							</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<!-- Back to Home -->
+			<div class="back-container">
+				<a href="index.html#servicios" class="back-link">
+					← Volver a Servicios
+				</a>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<img src="img/milogo/logotipo_solo.svg" alt="P3L1CO" class="footer-logo">
+					<p>Arquitectura de Software & Videovigilancia</p>
+				</div>
+				<div class="footer-links">
+					<h4>Enlaces</h4>
+					<ul>
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="index.html#proyectos">Proyectos</a></li>
+						<li><a href="index.html#servicios">Servicios</a></li>
+						<li><a href="index.html#contacto">Contacto</a></li>
+					</ul>
+				</div>
+				<div class="footer-contact">
+					<h4>Contacto</h4>
+					<p>Email: contacto@p3l1co.com</p>
+					<p>Guatemala, GT</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 P3L1CO. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- TikTok Embed Script -->
+	<script async src="https://www.tiktok.com/embed.js"></script>
+
+	<!-- Navigation Script -->
+	<script>
+		// Mobile menu toggle
+		const navToggle = document.querySelector('.nav-toggle');
+		const navMenu = document.querySelector('.nav-menu');
+
+		if (navToggle) {
+			navToggle.addEventListener('click', () => {
+				navMenu.classList.toggle('active');
+				navToggle.classList.toggle('active');
+			});
+		}
+
+		// Close menu when clicking outside
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.navbar')) {
+				navMenu.classList.remove('active');
+				navToggle.classList.remove('active');
+			}
+		});
+	</script>
+</body>
+</html>
