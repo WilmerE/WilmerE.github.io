@@ -1173,23 +1173,31 @@ ul {
 }
 
 .node-2 {
-	transform: rotate(60deg) translate(280px) rotate(-60deg);
+	transform: rotate(45deg) translate(280px) rotate(-45deg);
 }
 
 .node-3 {
-	transform: rotate(120deg) translate(280px) rotate(-120deg);
+	transform: rotate(90deg) translate(280px) rotate(-90deg);
 }
 
 .node-4 {
-	transform: rotate(180deg) translate(280px) rotate(-180deg);
+	transform: rotate(135deg) translate(280px) rotate(-135deg);
 }
 
 .node-5 {
-	transform: rotate(240deg) translate(280px) rotate(-240deg);
+	transform: rotate(180deg) translate(280px) rotate(-180deg);
 }
 
 .node-6 {
-	transform: rotate(300deg) translate(280px) rotate(-300deg);
+	transform: rotate(225deg) translate(280px) rotate(-225deg);
+}
+
+.node-7 {
+	transform: rotate(270deg) translate(280px) rotate(-270deg);
+}
+
+.node-8 {
+	transform: rotate(315deg) translate(280px) rotate(-315deg);
 }
 
 /* Client Link & Logo */
@@ -1584,11 +1592,13 @@ ul {
 	}
 	
 	.node-1 { transform: rotate(0deg) translate(170px) rotate(0deg); }
-	.node-2 { transform: rotate(60deg) translate(170px) rotate(-60deg); }
-	.node-3 { transform: rotate(120deg) translate(170px) rotate(-120deg); }
-	.node-4 { transform: rotate(180deg) translate(170px) rotate(-180deg); }
-	.node-5 { transform: rotate(240deg) translate(170px) rotate(-240deg); }
-	.node-6 { transform: rotate(300deg) translate(170px) rotate(-300deg); }
+	.node-2 { transform: rotate(45deg) translate(170px) rotate(-45deg); }
+	.node-3 { transform: rotate(90deg) translate(170px) rotate(-90deg); }
+	.node-4 { transform: rotate(135deg) translate(170px) rotate(-135deg); }
+	.node-5 { transform: rotate(180deg) translate(170px) rotate(-180deg); }
+	.node-6 { transform: rotate(225deg) translate(170px) rotate(-225deg); }
+	.node-7 { transform: rotate(270deg) translate(170px) rotate(-270deg); }
+	.node-8 { transform: rotate(315deg) translate(170px) rotate(-315deg); }
 }
 
 @media (max-width: 480px) {
@@ -1624,7 +1634,9 @@ ul {
 	.connection-lines .line-3-mobile,
 	.connection-lines .line-4-mobile,
 	.connection-lines .line-5-mobile,
-	.connection-lines .line-6-mobile {
+	.connection-lines .line-6-mobile,
+	.connection-lines .line-7-mobile,
+	.connection-lines .line-8-mobile {
 		display: inline;
 	}
 	
@@ -1660,20 +1672,24 @@ ul {
 	}
 	
 	.node-1 { transform: rotate(0deg) translate(150px) rotate(0deg) !important; }
-	.node-2 { transform: rotate(60deg) translate(150px) rotate(-60deg) !important; }
-	.node-3 { transform: rotate(120deg) translate(150px) rotate(-120deg) !important; }
-	.node-4 { transform: rotate(180deg) translate(150px) rotate(-180deg) !important; }
-	.node-5 { transform: rotate(240deg) translate(150px) rotate(-240deg) !important; }
-	.node-6 { transform: rotate(300deg) translate(150px) rotate(-300deg) !important; }
+	.node-2 { transform: rotate(45deg) translate(150px) rotate(-45deg) !important; }
+	.node-3 { transform: rotate(90deg) translate(150px) rotate(-90deg) !important; }
+	.node-4 { transform: rotate(135deg) translate(150px) rotate(-135deg) !important; }
+	.node-5 { transform: rotate(180deg) translate(150px) rotate(-180deg) !important; }
+	.node-6 { transform: rotate(225deg) translate(150px) rotate(-225deg) !important; }
+	.node-7 { transform: rotate(270deg) translate(150px) rotate(-270deg) !important; }
+	.node-8 { transform: rotate(315deg) translate(150px) rotate(-315deg) !important; }
 	/* Mostrar solo las líneas móviles y ocultar desktop */
 	/* Más cerca aún en móviles pequeños */
 	@media (max-width: 400px) {
 		.node-1 { transform: rotate(0deg) translate(90px) rotate(0deg); }
-		.node-2 { transform: rotate(60deg) translate(90px) rotate(-60deg); }
-		.node-3 { transform: rotate(120deg) translate(90px) rotate(-120deg); }
-		.node-4 { transform: rotate(180deg) translate(90px) rotate(-180deg); }
-		.node-5 { transform: rotate(240deg) translate(90px) rotate(-240deg); }
-		.node-6 { transform: rotate(300deg) translate(90px) rotate(-300deg); }
+		.node-2 { transform: rotate(45deg) translate(90px) rotate(-45deg); }
+		.node-3 { transform: rotate(90deg) translate(90px) rotate(-90deg); }
+		.node-4 { transform: rotate(135deg) translate(90px) rotate(-135deg); }
+		.node-5 { transform: rotate(180deg) translate(90px) rotate(-180deg); }
+		.node-6 { transform: rotate(225deg) translate(90px) rotate(-225deg); }
+		.node-7 { transform: rotate(270deg) translate(90px) rotate(-270deg); }
+		.node-8 { transform: rotate(315deg) translate(90px) rotate(-315deg); }
 		.clients-orbit-container {
 			height: 200px;
 			max-width: 200px;

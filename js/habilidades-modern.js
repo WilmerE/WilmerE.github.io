@@ -512,8 +512,10 @@ class ClientsOrbit {
 				
 				// Extract rotation and translation
 				const angle = Math.atan2(matrix.b, matrix.a);
-				const positionAngle = (index * 60) * Math.PI / 180;
-				const radius = 280;
+				const totalNodes = this.clientNodes.length;
+				const positionAngle = (index * (360 / totalNodes)) * Math.PI / 180;
+				const containerWidth = this.orbitContainer.getBoundingClientRect().width;
+				const radius = containerWidth * 0.4;
 				
 				node.style.transform = `rotate(${positionAngle}rad) translate(${radius}px) rotate(-${positionAngle}rad) scale(1)`;
 			}, index * 100);
