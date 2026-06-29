@@ -1,0 +1,139 @@
+:root {
+  --bg-top: #fef7e8;
+  --bg-bottom: #ffe1c6;
+  --card: #fffdf8;
+  --text-main: #2f2a24;
+  --text-soft: #6a5f53;
+  --accent: #c17b2d;
+  --accent-strong: #8c5314;
+  --border: #f2dcc0;
+  --shadow: 0 20px 48px rgba(104, 67, 21, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.55) 0 20%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(255, 225, 170, 0.45) 0 20%, transparent 44%),
+    linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+.player-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.player-card {
+  width: min(720px, 100%);
+  background: linear-gradient(180deg, #fffefb, var(--card));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+  animation: rise-in 650ms ease-out;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 8px 0 6px;
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: var(--text-soft);
+}
+
+.audio {
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 999px;
+}
+
+.status {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+
+.playlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.song-btn {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-main);
+  text-align: left;
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.song-btn:hover {
+  transform: translateY(-2px);
+  border-color: #e7cba6;
+  background: #fff9ef;
+}
+
+.song-btn.is-active {
+  border-color: var(--accent);
+  background: #fff2df;
+  color: #5e3b12;
+  font-weight: 700;
+}
+
+.song-meta {
+  display: block;
+  font-size: 0.84rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .player-shell {
+    padding: 14px;
+  }
+
+  .player-card {
+    border-radius: 18px;
+    padding: 18px;
+  }
+}
