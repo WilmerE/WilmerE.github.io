@@ -44,7 +44,7 @@ function playTrack(index) {
   currentIndex = index;
   audio.src = resolveAssetUrl(track.file);
   audio.play().catch(() => {
-    setStatus("Selecciona una cancion para comenzar.");
+    setStatus("Selecciona una canción para comenzar.");
   });
 
   setStatus(`Reproduciendo: ${track.title}`);
@@ -53,7 +53,7 @@ function playTrack(index) {
 
 audio.addEventListener("error", () => {
   const track = tracks[currentIndex];
-  const title = track?.title || "la cancion seleccionada";
+  const title = track?.title || "la canción seleccionada";
   setStatus(`No se pudo cargar ${title}. Verifica el archivo en /playlist/media.`);
 });
 
@@ -77,13 +77,13 @@ async function loadPlaylist() {
     tracks = Array.isArray(data.tracks) ? data.tracks : [];
 
     if (!tracks.length) {
-      setStatus("No hay canciones aun. Agrega archivos de audio a /media y actualiza playlist.json.");
+      setStatus("No hay canciones aún. Agrega archivos de audio a /media y actualiza playlist.json.");
       return;
     }
 
     currentIndex = 0;
     audio.src = resolveAssetUrl(tracks[0].file);
-    setStatus("Lista cargada. Pulsa Play o elige una cancion.");
+    setStatus("Lista cargada. Pulsa Play o elige una canción.");
     renderPlaylist();
   } catch (error) {
     if (window.location.protocol === "file:") {
@@ -91,7 +91,7 @@ async function loadPlaylist() {
       return;
     }
 
-    setStatus("No se encontro playlist.json o hubo un error de carga.");
+    setStatus("No se encontró playlist.json o hubo un error de carga.");
   }
 }
 
