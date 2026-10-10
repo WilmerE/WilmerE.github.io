@@ -1173,31 +1173,35 @@ ul {
 }
 
 .node-2 {
-	transform: rotate(45deg) translate(280px) rotate(-45deg);
+	transform: rotate(40deg) translate(280px) rotate(-40deg);
 }
 
 .node-3 {
-	transform: rotate(90deg) translate(280px) rotate(-90deg);
+	transform: rotate(80deg) translate(280px) rotate(-80deg);
 }
 
 .node-4 {
-	transform: rotate(135deg) translate(280px) rotate(-135deg);
+	transform: rotate(120deg) translate(280px) rotate(-120deg);
 }
 
 .node-5 {
-	transform: rotate(180deg) translate(280px) rotate(-180deg);
+	transform: rotate(160deg) translate(280px) rotate(-160deg);
 }
 
 .node-6 {
-	transform: rotate(225deg) translate(280px) rotate(-225deg);
+	transform: rotate(200deg) translate(280px) rotate(-200deg);
 }
 
 .node-7 {
-	transform: rotate(270deg) translate(280px) rotate(-270deg);
+	transform: rotate(240deg) translate(280px) rotate(-240deg);
 }
 
 .node-8 {
-	transform: rotate(315deg) translate(280px) rotate(-315deg);
+	transform: rotate(280deg) translate(280px) rotate(-280deg);
+}
+
+.node-9 {
+	transform: rotate(320deg) translate(280px) rotate(-320deg);
 }
 
 /* Client Link & Logo */
@@ -1592,13 +1596,14 @@ ul {
 	}
 	
 	.node-1 { transform: rotate(0deg) translate(170px) rotate(0deg); }
-	.node-2 { transform: rotate(45deg) translate(170px) rotate(-45deg); }
-	.node-3 { transform: rotate(90deg) translate(170px) rotate(-90deg); }
-	.node-4 { transform: rotate(135deg) translate(170px) rotate(-135deg); }
-	.node-5 { transform: rotate(180deg) translate(170px) rotate(-180deg); }
-	.node-6 { transform: rotate(225deg) translate(170px) rotate(-225deg); }
-	.node-7 { transform: rotate(270deg) translate(170px) rotate(-270deg); }
-	.node-8 { transform: rotate(315deg) translate(170px) rotate(-315deg); }
+	.node-2 { transform: rotate(40deg) translate(170px) rotate(-40deg); }
+	.node-3 { transform: rotate(80deg) translate(170px) rotate(-80deg); }
+	.node-4 { transform: rotate(120deg) translate(170px) rotate(-120deg); }
+	.node-5 { transform: rotate(160deg) translate(170px) rotate(-160deg); }
+	.node-6 { transform: rotate(200deg) translate(170px) rotate(-200deg); }
+	.node-7 { transform: rotate(240deg) translate(170px) rotate(-240deg); }
+	.node-8 { transform: rotate(280deg) translate(170px) rotate(-280deg); }
+	.node-9 { transform: rotate(320deg) translate(170px) rotate(-320deg); }
 }
 
 @media (max-width: 480px) {
@@ -1672,24 +1677,26 @@ ul {
 	}
 	
 	.node-1 { transform: rotate(0deg) translate(150px) rotate(0deg) !important; }
-	.node-2 { transform: rotate(45deg) translate(150px) rotate(-45deg) !important; }
-	.node-3 { transform: rotate(90deg) translate(150px) rotate(-90deg) !important; }
-	.node-4 { transform: rotate(135deg) translate(150px) rotate(-135deg) !important; }
-	.node-5 { transform: rotate(180deg) translate(150px) rotate(-180deg) !important; }
-	.node-6 { transform: rotate(225deg) translate(150px) rotate(-225deg) !important; }
-	.node-7 { transform: rotate(270deg) translate(150px) rotate(-270deg) !important; }
-	.node-8 { transform: rotate(315deg) translate(150px) rotate(-315deg) !important; }
+	.node-2 { transform: rotate(40deg) translate(150px) rotate(-40deg) !important; }
+	.node-3 { transform: rotate(80deg) translate(150px) rotate(-80deg) !important; }
+	.node-4 { transform: rotate(120deg) translate(150px) rotate(-120deg) !important; }
+	.node-5 { transform: rotate(160deg) translate(150px) rotate(-160deg) !important; }
+	.node-6 { transform: rotate(200deg) translate(150px) rotate(-200deg) !important; }
+	.node-7 { transform: rotate(240deg) translate(150px) rotate(-240deg) !important; }
+	.node-8 { transform: rotate(280deg) translate(150px) rotate(-280deg) !important; }
+	.node-9 { transform: rotate(320deg) translate(150px) rotate(-320deg) !important; }
 	/* Mostrar solo las líneas móviles y ocultar desktop */
 	/* Más cerca aún en móviles pequeños */
 	@media (max-width: 400px) {
 		.node-1 { transform: rotate(0deg) translate(90px) rotate(0deg); }
-		.node-2 { transform: rotate(45deg) translate(90px) rotate(-45deg); }
-		.node-3 { transform: rotate(90deg) translate(90px) rotate(-90deg); }
-		.node-4 { transform: rotate(135deg) translate(90px) rotate(-135deg); }
-		.node-5 { transform: rotate(180deg) translate(90px) rotate(-180deg); }
-		.node-6 { transform: rotate(225deg) translate(90px) rotate(-225deg); }
-		.node-7 { transform: rotate(270deg) translate(90px) rotate(-270deg); }
-		.node-8 { transform: rotate(315deg) translate(90px) rotate(-315deg); }
+		.node-2 { transform: rotate(40deg) translate(90px) rotate(-40deg); }
+		.node-3 { transform: rotate(80deg) translate(90px) rotate(-80deg); }
+		.node-4 { transform: rotate(120deg) translate(90px) rotate(-120deg); }
+		.node-5 { transform: rotate(160deg) translate(90px) rotate(-160deg); }
+		.node-6 { transform: rotate(200deg) translate(90px) rotate(-200deg); }
+		.node-7 { transform: rotate(240deg) translate(90px) rotate(-240deg); }
+		.node-8 { transform: rotate(280deg) translate(90px) rotate(-280deg); }
+		.node-9 { transform: rotate(320deg) translate(90px) rotate(-320deg); }
 		.clients-orbit-container {
 			height: 200px;
 			max-width: 200px;
